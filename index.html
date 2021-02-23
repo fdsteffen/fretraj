@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>FRETraj - Predicting FRET in silico &mdash; FRETraj 0.1.0 documentation</title>
+  <title>FRETraj - Predicting FRET in silico &mdash; fretraj  documentation</title>
   
 
   
@@ -54,7 +54,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> FRETraj
+            <a href="#" class="icon icon-home"> fretraj
           
 
           
@@ -65,6 +65,10 @@
 
           
             
+            
+              <div class="version">
+                0.1.0
+              </div>
             
           
 
@@ -123,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">FRETraj</a>
+          <a href="#">fretraj</a>
         
       </nav>
 
@@ -205,9 +209,8 @@
 <h1>FRETraj - Predicting FRET <em>in silico</em><a class="headerlink" href="#fretraj-predicting-fret-in-silico" title="Permalink to this headline">¶</a></h1>
 <p>FRETraj is a high-level Python API to the <strong>LabelLib</strong> library (<a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib">https://github.com/Fluorescence-Tools/LabelLib</a>) to simulate fluorophores which are coupled to a biomolecule of interest. The package features a user-friendly <strong>PyMOL plugin</strong> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> which can be used to explore different labeling positions while designing new FRET experiments. In an AV simulation the fluorophore distribution is estimated by a shortest path search (Djikstra algorithm) using a coarse-grained dye probe. FRETraj further implements a <strong>Python-only</strong> version of the geometrical clash search used in LabelLib. This should facilitate prototyping of new features for the ACV algorithm.</p>
 <a class="reference internal image-reference" href="_images/graphical_abstract.png"><img alt="_images/graphical_abstract.png" class="align-center" src="_images/graphical_abstract.png" style="width: 90%;" /></a>
-</div>
 <div class="section" id="plugin-installation">
-<span id="pymol-plugin-installation"></span><h1>Plugin Installation<a class="headerlink" href="#plugin-installation" title="Permalink to this headline">¶</a></h1>
+<span id="pymol-plugin-installation"></span><h2>Plugin Installation<a class="headerlink" href="#plugin-installation" title="Permalink to this headline">¶</a></h2>
 <p>You can get the latest version of PyMOL from <a class="reference external" href="https://pymol.org/">Schrödinger</a>. Start the <strong>Anaconda prompt</strong> which comes bundled with PyMOL 2.x and install the necessary dependencies.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">numpy</span> <span class="s2">&quot;numba&lt;=0.44&quot;</span> <span class="n">mdtraj</span> <span class="n">packaging</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
@@ -234,6 +237,7 @@
 <div class="toctree-wrapper compound">
 </div>
 </div>
+</div>
 
 
            </div>
@@ -248,7 +252,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Fabio D. Steffen.
+        &#169; Copyright 2020-2021, Fabio Steffen.
 
     </p>
   </div>
