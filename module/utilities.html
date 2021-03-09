@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -44,7 +44,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -113,8 +115,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/reproducible-notebook.html">
-   Reproducible notebooks
+  <a class="reference internal" href="../getting_started/jupyter-notebook.html">
+   <em>
+    FRETraj
+   </em>
+   and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/trajectories.html">
+   Working with trajectories
   </a>
  </li>
 </ul>
@@ -195,21 +205,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -227,18 +237,18 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/fdsteffen/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/RNA-FRETools/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/fdsteffen/fretraj/issues/new?title=Issue%20on%20page%20%2Fmodule/utilities.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fmodule/utilities.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -246,19 +256,19 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -278,6 +288,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -443,9 +454,127 @@
 <div class="section" id="module-fretraj.jupyter">
 <span id="jupyter"></span><h2>Jupyter<a class="headerlink" href="#module-fretraj.jupyter" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
+<dt id="fretraj.jupyter._change_model">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">_change_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#_change_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter._change_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the current model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>int</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter._on_slider_value_change">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">_on_slider_value_change</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">change</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#_on_slider_value_change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter._on_slider_value_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the view upon changing the slider value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>change</strong> (<em>dict</em>)</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See also: <a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Events.html">https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Events.html</a></p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="fretraj.jupyter.connect2pymol">
 <code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">connect2pymol</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#connect2pymol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.connect2pymol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establish an RPC connection to run PyMOL commands from the command line or from a Jupyter notebook</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.model_slider">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">model_slider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_models</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#model_slider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.model_slider" title="Permalink to this definition">¶</a></dt>
+<dd><p>A slider widget for multi-model structures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_models</strong> (<em>int</em>) – number of models in the structure</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>int_slider</strong> (<em>ipywidgets.IntSlider</em>)</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See also: <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html">https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.nglview_multimodel_ACV">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">nglview_multimodel_ACV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">biomol_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume1_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume2_filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#nglview_multimodel_ACV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.nglview_multimodel_ACV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a nglview multi-model structure scene with donor and acceptor accessible-contact volumes (ACV)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure_filename</strong> (<em>str</em>) – multi-model PDB of the biomolecule</p></li>
+<li><p><strong>volume1_filename, volume2_filename</strong> (<em>str</em>) – multi-model PDB of the donor and acceptor accessible-contact volume</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>view</strong> (<em>nglview.NGLWidget</em>)</p></li>
+<li><p><strong>n_model</strong> (<em>int</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.nglview_trajectory">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">nglview_trajectory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_biomol</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#nglview_trajectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.nglview_trajectory" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.nglview_trajectory_ACV">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">nglview_trajectory_ACV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_biomol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume1_FV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume2_FV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume1_CV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume2_CV</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#nglview_trajectory_ACV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.nglview_trajectory_ACV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a nglview trajectory scene with donor and acceptor accessible-contact volumes (ACV)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_biomol</strong> (<em>mdtraj.Trajectory</em>) – trajectory of the biomolecule</p></li>
+<li><p><strong>traj_volume1_FV, traj_volume2_FV</strong> (<em>mdtraj.Trajectory</em>) – trajectory of the donor and acceptor free volume</p></li>
+<li><p><strong>traj_volume1_CV, traj_volume2_CV</strong> (<em>mdtraj.Trajectory</em>) – trajectory of the donor and acceptor contact volume</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>view</strong> (<em>nglview.NGLWidget</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.nglview_trajectory_AV">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">nglview_trajectory_AV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_biomol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_volume2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#nglview_trajectory_AV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.nglview_trajectory_AV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a nglview trajectory scene with donor and acceptor accessible volumes (AV)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_biomol</strong> (<em>mdtraj.Trajectory</em>) – trajectory of the biomolecule</p></li>
+<li><p><strong>traj_volume1, traj_volume2</strong> (<em>mdtraj.Trajectory</em>) – trajectory of the donor and acceptor accessible volume</p></li>
+<li><p><strong>surface_representation</strong> (<em>bool (default: False)</em>) – show a surface representation (instead of spacefill, which is faster)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>view</strong> (<em>nglview.NGLWidget</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.jupyter.render_view">
+<code class="sig-prename descclassname"><span class="pre">fretraj.jupyter.</span></code><code class="sig-name descname"><span class="pre">render_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/jupyter.html#render_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.jupyter.render_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display an nglview scene with or without a GUI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>view</strong> (<em>nglview.NGLWidget</em>)</p></li>
+<li><p><strong>gui</strong> (<em>bool</em>) – display the scene within a GUI window
+(useful for interacting with components and representations)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
@@ -472,15 +601,15 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="grid.html" title="previous page">Grid</a>
     <a class='right-next' id="next-link" href="../references.html" title="next page">References</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">

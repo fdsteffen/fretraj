@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -44,7 +44,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -113,8 +115,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../getting_started/reproducible-notebook.html">
-   Reproducible notebooks
+  <a class="reference internal" href="../getting_started/jupyter-notebook.html">
+   <em>
+    FRETraj
+   </em>
+   and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/trajectories.html">
+   Working with trajectories
   </a>
  </li>
 </ul>
@@ -195,21 +205,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -227,18 +237,18 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/fdsteffen/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/RNA-FRETools/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/fdsteffen/fretraj/issues/new?title=Issue%20on%20page%20%2Fmodule/cloud.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fmodule/cloud.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -246,19 +256,20 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -290,7 +301,7 @@ with a shape [n_gridpts(+), 4]</p></li>
 </dl>
 <dl class="py method">
 <dt id="fretraj.cloud.ACV._reweight_cv">
-<code class="sig-name descname"><span class="pre">_reweight_cv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cv_thickness</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_fraction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#ACV._reweight_cv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.ACV._reweight_cv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">_reweight_cv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_thickness</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_fraction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#ACV._reweight_cv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.ACV._reweight_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reweight the accessible volume based on contact and free volume</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -786,6 +797,32 @@ frames using the same dye and grid parameters</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="fretraj.cloud._create_volume_topology">
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">_create_volume_topology</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_atoms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#_create_volume_topology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud._create_volume_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a topology for an accessible-contact volume</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_atoms</strong> (<em>int</em>) – number of points in the volume</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.cloud.acv_subsampling">
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">acv_subsampling</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#acv_subsampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.acv_subsampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subsample the ACV to obtain identical number of points over all volumes.
+This allows to create mdtraj.Trajectory objects of the ACV which can be also save as .xtc or .xyz files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>volume_list</strong> (<em>array_like</em>) – list of Volume instances</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – be verbose about the number of subsamples</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="fretraj.cloud.check_labels">
 <code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">check_labels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#check_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.check_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check integrity of parameter dictionary</p>
@@ -800,8 +837,22 @@ frames using the same dye and grid parameters</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="fretraj.cloud.create_acv_traj">
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">create_acv_traj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#create_acv_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.create_acv_traj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mdtraj.Trajectory object from a volume list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>volume_list</strong> (<em>array_like</em>) – list of Volume instances</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – be verbose about the number of subsamples</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="fretraj.cloud.labeling_params">
-<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">labeling_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#labeling_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.labeling_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">labeling_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#labeling_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.labeling_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse the parameter file to get the configuration settings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -811,6 +862,22 @@ frames using the same dye and grid parameters</p>
 <dd class="field-even"><p><em>dict</em> – position of labels, dye and grid parameters</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fretraj.cloud.load_acv_traj">
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">load_acv_traj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#load_acv_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.load_acv_traj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an AV, FV and CV from .xyz or .xtc file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – filename of ACV trajectory</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multi model PDB files cannot be loaded as a mdtraj.Trajectory because they are on purpose not subsampled
+and thus contain different number of points per volume</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -842,6 +909,30 @@ and the output ACV</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="fretraj.cloud.pipeline_frames">
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">pipeline_frames</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">donor_site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceptor_site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fret_pair</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#pipeline_frames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.pipeline_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a pipeline to compute multi-frame donor and acceptor ACVs and calculate a FRET trajectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>mdtraj.Trajectory</em>) – trajectory of atom coordinates loaded from a pdb, xtc or other file</p></li>
+<li><p><strong>donor_site</strong> (<em>str</em>) – reference identifier for the donor labeling position</p></li>
+<li><p><strong>acceptor_site</strong> (<em>str</em>) – reference identifier for the acceptor labeling position</p></li>
+<li><p><strong>labels</strong> (<em>dict</em>) – dye, linker and setup parameters for the accessible volume calculation</p></li>
+<li><p><strong>frames_mdtraj</strong> (<em>list</em>) – list of frames on the trajectory to be used for the ACV calculation</p></li>
+<li><p><strong>fret_pair</strong> (<em>str</em>) – Distance key specifying the donor acceptor pair</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running a pipeline more memory-efficient than running Volume.from_frames()
+because the ACVs are stored only until the FRET efficiency is calculated.
+On the downside, no ACV trajectories(.xtc / .xyz) can be saved.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="fretraj.cloud.printProgressBar">
 <code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">printProgressBar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Progress:'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'complete'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'█'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#printProgressBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.printProgressBar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Command line progress bar</p>
@@ -868,13 +959,19 @@ and the output ACV</p>
 
 <dl class="py function">
 <dt id="fretraj.cloud.save_acv_traj">
-<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">save_acv_traj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#save_acv_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.save_acv_traj" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save a trajectory of ACVs as a multi model PDB</p>
+<code class="sig-prename descclassname"><span class="pre">fretraj.cloud.</span></code><code class="sig-name descname"><span class="pre">save_acv_traj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pdb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/cloud.html#save_acv_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.cloud.save_acv_traj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a trajectory of ACVs as a full multi model PDB or a subsampled .xyz or .xtc
+(with identical number of points over all volumes)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – filename for ACV trajectory</p></li>
 <li><p><strong>volume_list</strong> (<em>array_like</em>) – list of Volume instances</p></li>
+<li><p><strong>format</strong> (<em>str</em>) – file format of the ACV (for ‘pdb’ the full cloud is saved without subsampling;
+for ‘xyz’ k points in the volumes are randomly picked, where k is the number
+of points in the smallest volume)</p></li>
+<li><p><strong>separate_CV</strong> (<em>bool</em>) – Save contact and free volume in separate files
+(choose this if you want to retain the CV information)</p></li>
 </ul>
 </dd>
 </dl>
@@ -966,15 +1063,15 @@ and the output ACV</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="../background/parameter_file.html" title="previous page">The parameter file</a>
     <a class='right-next' id="next-link" href="fret.html" title="next page">FRET</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">

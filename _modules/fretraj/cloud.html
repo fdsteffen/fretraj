@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -44,7 +44,9 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -111,8 +113,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/reproducible-notebook.html">
-   Reproducible notebooks
+  <a class="reference internal" href="../../getting_started/jupyter-notebook.html">
+   <em>
+    FRETraj
+   </em>
+   and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/trajectories.html">
+   Working with trajectories
   </a>
  </li>
 </ul>
@@ -193,33 +203,33 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-        <!-- Source interaction buttons -->
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/fdsteffen/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/RNA-FRETools/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/fdsteffen/fretraj/issues/new?title=Issue%20on%20page%20%2F_modules/fretraj/cloud.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2F_modules/fretraj/cloud.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -227,19 +237,20 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -296,7 +307,7 @@
                                        <span class="s1">&#39;cv_fraction&#39;</span><span class="p">:</span> <span class="p">((</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
                                        <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
                                        <span class="s1">&#39;frame_mdtraj&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                                       <span class="s1">&#39;use_LabelLib&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+                                       <span class="s1">&#39;use_LabelLib&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
                                        <span class="s1">&#39;contour_level_AV&#39;</span><span class="p">:</span> <span class="p">((</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
                                        <span class="s1">&#39;contour_level_CV&#39;</span><span class="p">:</span> <span class="p">((</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="mf">0.7</span><span class="p">),</span>
                                        <span class="s1">&#39;b_factor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
@@ -327,6 +338,8 @@
 <span class="s1">                     an MD trajectory or a given PDB structure&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--version&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;version&#39;</span><span class="p">,</span>
                         <span class="n">version</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(prog)s</span><span class="s1"> &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Version&#39;</span><span class="p">]))</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--path&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;package directory: </span><span class="si">{</span><span class="n">package_directory</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Show package directory&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input PDB structure (.pdb)&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--parameters&#39;</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Parameter file (.json)&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -340,7 +353,7 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">in_filePDB</span><span class="p">,</span> <span class="n">param_fileJSON</span><span class="p">,</span> <span class="n">out_fileACV</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="labeling_params"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.labeling_params">[docs]</a><span class="k">def</span> <span class="nf">labeling_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">):</span>
+<div class="viewcode-block" id="labeling_params"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.labeling_params">[docs]</a><span class="k">def</span> <span class="nf">labeling_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parse the parameter file to get the configuration settings</span>
 
 <span class="sd">    Parameters</span>
@@ -357,7 +370,7 @@
         <span class="n">labels_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">check_labels</span><span class="p">(</span><span class="n">labels_json</span><span class="p">)</span>
+        <span class="n">check_labels</span><span class="p">(</span><span class="n">labels_json</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="n">error_type</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -378,7 +391,7 @@
 <span class="sd">    labels : dict</span>
 <span class="sd">        position of labels, dye and grid parameters</span>
 <span class="sd">    verbose : bool, optional=True</span>
-<span class="sd">        be verbose about missing parameter and their fall-back values </span>
+<span class="sd">        be verbose about missing parameter and their fall-back values</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">_label_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">labels</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -419,6 +432,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">labels</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot read </span><span class="si">{}</span><span class="s1"> parameters from file: Missing field </span><span class="se">\&#39;</span><span class="si">{}</span><span class="se">\&#39;</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="p">))</span></div>
+
 
 <div class="viewcode-block" id="save_obj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.save_obj">[docs]</a><span class="k">def</span> <span class="nf">save_obj</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -514,6 +528,45 @@
         <span class="nb">print</span><span class="p">()</span></div>
 
 
+<div class="viewcode-block" id="pipeline_frames"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.pipeline_frames">[docs]</a><span class="k">def</span> <span class="nf">pipeline_frames</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">donor_site</span><span class="p">,</span> <span class="n">acceptor_site</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">fret_pair</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a pipeline to compute multi-frame donor and acceptor ACVs and calculate a FRET trajectory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    structure : mdtraj.Trajectory</span>
+<span class="sd">                trajectory of atom coordinates loaded from a pdb, xtc or other file</span>
+<span class="sd">    donor_site : str</span>
+<span class="sd">                 reference identifier for the donor labeling position</span>
+<span class="sd">    acceptor_site : str</span>
+<span class="sd">                    reference identifier for the acceptor labeling position</span>
+<span class="sd">    labels : dict</span>
+<span class="sd">             dye, linker and setup parameters for the accessible volume calculation</span>
+<span class="sd">    frames_mdtraj : list</span>
+<span class="sd">                    list of frames on the trajectory to be used for the ACV calculation</span>
+<span class="sd">    fret_pair : str</span>
+<span class="sd">                Distance key specifying the donor acceptor pair</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Running a pipeline more memory-efficient than running Volume.from_frames()</span>
+<span class="sd">    because the ACVs are stored only until the FRET efficiency is calculated.</span>
+<span class="sd">    On the downside, no ACV trajectories(.xtc / .xyz) can be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_labels</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="n">acv</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">fret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n_frames</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+    <span class="n">printProgressBar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">dye</span><span class="p">,</span> <span class="n">site</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">donor_site</span><span class="p">,</span> <span class="n">acceptor_site</span><span class="p">]):</span>
+            <span class="n">_labels</span><span class="p">[</span><span class="s1">&#39;Position&#39;</span><span class="p">][</span><span class="n">site</span><span class="p">][</span><span class="s1">&#39;frame_mdtraj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
+            <span class="n">_labels</span><span class="p">[</span><span class="s1">&#39;Position&#39;</span><span class="p">][</span><span class="n">site</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">acv</span><span class="p">[</span><span class="n">dye</span><span class="p">]</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">_labels</span><span class="p">)</span>
+        <span class="n">fret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">FRET</span><span class="p">(</span><span class="n">acv</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">acv</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">fret_pair</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+        <span class="n">printProgressBar</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fret</span></div>
+
+
 <div class="viewcode-block" id="save_mp_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.save_mp_traj">[docs]</a><span class="k">def</span> <span class="nf">save_mp_traj</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">volume_list</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Save a trajectory of dye mean positions as an xyz file</span>
 
@@ -535,8 +588,60 @@
         <span class="n">fname</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xyz_str</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="save_acv_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.save_acv_traj">[docs]</a><span class="k">def</span> <span class="nf">save_acv_traj</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">volume_list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Save a trajectory of ACVs as a multi model PDB</span>
+<div class="viewcode-block" id="acv_subsampling"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.acv_subsampling">[docs]</a><span class="k">def</span> <span class="nf">acv_subsampling</span><span class="p">(</span><span class="n">volume_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Subsample the ACV to obtain identical number of points over all volumes.</span>
+<span class="sd">    This allows to create mdtraj.Trajectory objects of the ACV which can be also save as .xtc or .xyz files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    volume_list : array_like</span>
+<span class="sd">        list of Volume instances</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        be verbose about the number of subsamples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+    <span class="n">vols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AV&#39;</span><span class="p">,</span> <span class="s1">&#39;FV&#39;</span><span class="p">,</span> <span class="s1">&#39;CV&#39;</span><span class="p">]</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">xyz_sub</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vols</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;CV&#39;</span><span class="p">:</span>
+            <span class="n">xyz_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">volume</span><span class="p">:</span> <span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">[</span><span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                                <span class="n">volume_list</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;FV&#39;</span><span class="p">:</span>
+            <span class="n">xyz_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">volume</span><span class="p">:</span> <span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">[</span><span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                                <span class="n">volume_list</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">xyz_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">volume</span><span class="p">:</span> <span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">volume_list</span><span class="p">))</span>
+        <span class="n">n_pts</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">xyz</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">xyz</span> <span class="ow">in</span> <span class="n">xyz_list</span><span class="p">])</span>
+        <span class="n">top</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">_create_volume_topology</span><span class="p">(</span><span class="n">n_pts</span><span class="p">)</span>
+        <span class="n">xyz_sub</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">n_pts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">xyz</span> <span class="ow">in</span> <span class="n">xyz_list</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">n_pts</span><span class="si">}</span><span class="s1"> points sampled in </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xyz_sub</span><span class="p">,</span> <span class="n">top</span></div>
+
+
+<div class="viewcode-block" id="create_acv_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.create_acv_traj">[docs]</a><span class="k">def</span> <span class="nf">create_acv_traj</span><span class="p">(</span><span class="n">volume_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a mdtraj.Trajectory object from a volume list</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    volume_list : array_like</span>
+<span class="sd">        list of Volume instances</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        be verbose about the number of subsamples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">acv_traj</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">xyz_sub</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="n">acv_subsampling</span><span class="p">(</span><span class="n">volume_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">acv_traj</span><span class="p">[</span><span class="s1">&#39;AV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="s1">&#39;AV&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">top</span><span class="p">[</span><span class="s1">&#39;AV&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">volume_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">tag_1d</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">acv_traj</span><span class="p">[</span><span class="s1">&#39;FV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="s1">&#39;FV&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">top</span><span class="p">[</span><span class="s1">&#39;FV&#39;</span><span class="p">])</span>
+        <span class="n">acv_traj</span><span class="p">[</span><span class="s1">&#39;CV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="s1">&#39;CV&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">top</span><span class="p">[</span><span class="s1">&#39;CV&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">acv_traj</span></div>
+
+
+<div class="viewcode-block" id="save_acv_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.save_acv_traj">[docs]</a><span class="k">def</span> <span class="nf">save_acv_traj</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">volume_list</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Save a trajectory of ACVs as a full multi model PDB or a subsampled .xyz or .xtc</span>
+<span class="sd">    (with identical number of points over all volumes)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -544,15 +649,80 @@
 <span class="sd">        filename for ACV trajectory</span>
 <span class="sd">    volume_list : array_like</span>
 <span class="sd">        list of Volume instances</span>
-
+<span class="sd">    format : str</span>
+<span class="sd">        file format of the ACV (for &#39;pdb&#39; the full cloud is saved without subsampling;</span>
+<span class="sd">        for &#39;xyz&#39; k points in the volumes are randomly picked, where k is the number</span>
+<span class="sd">        of points in the smallest volume)</span>
+<span class="sd">    separate_CV : bool</span>
+<span class="sd">        Save contact and free volume in separate files</span>
+<span class="sd">        (choose this if you want to retain the CV information)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">file_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">volume</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">volume_list</span><span class="p">):</span>
-        <span class="n">file_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;MODEL </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
-        <span class="n">file_str</span> <span class="o">+=</span> <span class="n">export</span><span class="o">.</span><span class="n">pdb</span><span class="p">(</span><span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">,</span> <span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">mp</span><span class="p">)</span>
-        <span class="n">file_str</span> <span class="o">+=</span> <span class="s1">&#39;ENDMDL</span><span class="se">\n\n</span><span class="s1">&#39;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fname</span><span class="p">:</span>
-        <span class="n">fname</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_str</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;pdb&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;With format </span><span class="se">\&quot;</span><span class="s1">PDB</span><span class="se">\&quot;</span><span class="s1"> no subsampling is performed.&#39;</span><span class="p">)</span>
+        <span class="n">file_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">volume</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">volume_list</span><span class="p">):</span>
+            <span class="n">file_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;MODEL </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">file_str</span> <span class="o">+=</span> <span class="n">export</span><span class="o">.</span><span class="n">pdb</span><span class="p">(</span><span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">,</span> <span class="n">volume</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">mp</span><span class="p">)</span>
+            <span class="n">file_str</span> <span class="o">+=</span> <span class="s1">&#39;ENDMDL</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fname</span><span class="p">:</span>
+            <span class="n">fname</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_str</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;xyz&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;xtc&#39;</span><span class="p">):</span>
+        <span class="n">vols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AV&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">volume_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">tag_1d</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">vols</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;FV&#39;</span><span class="p">,</span> <span class="s1">&#39;CV&#39;</span><span class="p">]</span>
+        <span class="n">base</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">xyz_sub</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="n">acv_subsampling</span><span class="p">(</span><span class="n">volume_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vols</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">v</span><span class="si">}{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;xtc&#39;</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">md</span><span class="o">.</span><span class="n">formats</span><span class="o">.</span><span class="n">XTCTrajectoryFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">md</span><span class="o">.</span><span class="n">formats</span><span class="o">.</span><span class="n">XYZTrajectoryFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+
+            <span class="n">first_frame</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz_sub</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">top</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">first_frame</span><span class="o">.</span><span class="n">save_pdb</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_acv_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.load_acv_traj">[docs]</a><span class="k">def</span> <span class="nf">load_acv_traj</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load an AV, FV and CV from .xyz or .xtc file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        filename of ACV trajectory</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Multi model PDB files cannot be loaded as a mdtraj.Trajectory because they are on purpose not subsampled</span>
+<span class="sd">    and thus contain different number of points per volume</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">base</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">acv_traj</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;FV&#39;</span><span class="p">,</span> <span class="s1">&#39;FV&#39;</span><span class="p">,</span> <span class="s1">&#39;CV&#39;</span><span class="p">]:</span>
+        <span class="n">acv_traj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">v</span><span class="si">}{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">acv_traj</span></div>
+
+
+<div class="viewcode-block" id="_create_volume_topology"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud._create_volume_topology">[docs]</a><span class="k">def</span> <span class="nf">_create_volume_topology</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a topology for an accessible-contact volume</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_atoms : int</span>
+<span class="sd">        number of points in the volume</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">atoms</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;serial&#39;</span><span class="p">),</span>
+                       <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">),</span>
+                       <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;element&#39;</span><span class="p">),</span>
+                       <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;resSeq&#39;</span><span class="p">),</span>
+                       <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;resName&#39;</span><span class="p">),</span>
+                       <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;chainID&#39;</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Topology</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">top</span></div>
 
 
 <div class="viewcode-block" id="save_structure_traj"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.save_structure_traj">[docs]</a><span class="k">def</span> <span class="nf">save_structure_traj</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdb&#39;</span><span class="p">):</span>
@@ -597,18 +767,13 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cv_thickness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cloud_xyzqt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_LabelLib</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">grid_acv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">grid</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">shape</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">originXYZ</span> <span class="o">=</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">originXYZ</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">discStep</span> <span class="o">=</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">discStep</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">n_gridpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">grid_1d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_1d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reweight_cv</span><span class="p">(</span><span class="n">cv_thickness</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">grid_3d</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">reshape_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_1d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">tag_3d</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">reshape_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_1d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cloud_xyzqt</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">grid2pts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_3d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">originXYZ</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">discStep</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_3d</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_gridpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">grid_acv</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grid_1d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_1d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reweight_cv</span><span class="p">(</span><span class="n">grid_acv</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">cv_thickness</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grid_3d</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">reshape_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_1d</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tag_3d</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">reshape_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_1d</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloud_xyzqt</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">grid2pts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">originXYZ</span><span class="p">,</span> <span class="p">[</span><span class="n">grid_acv</span><span class="o">.</span><span class="n">discStep</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_3d</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">use_LabelLib</span> <span class="ow">and</span> <span class="n">_LabelLib_found</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ll_Grid3D</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">Grid3D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">originXYZ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">discStep</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ll_Grid3D</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">Grid3D</span><span class="p">(</span><span class="n">grid_acv</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">originXYZ</span><span class="p">,</span> <span class="n">grid_acv</span><span class="o">.</span><span class="n">discStep</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">ll_Grid3D</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_1d</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">ll_Grid3D</span> <span class="o">=</span> <span class="kc">None</span>
@@ -616,7 +781,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">cloud_xyzqt</span> <span class="o">=</span> <span class="n">cloud_xyzqt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mp</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">mean_pos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ACV._reweight_cv"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.ACV._reweight_cv">[docs]</a>    <span class="k">def</span> <span class="nf">_reweight_cv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cv_thickness</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="p">):</span>
+<div class="viewcode-block" id="ACV._reweight_cv"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.ACV._reweight_cv">[docs]</a>    <span class="k">def</span> <span class="nf">_reweight_cv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">cv_thickness</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Reweight the accessible volume based on contact and free volume</span>
 
 <span class="sd">        Parameters</span>
@@ -630,13 +795,13 @@
 <span class="sd">        -------</span>
 <span class="sd">        grid_1d : ndarray</span>
 <span class="sd">                  one-dimensional array of grid points of length n_gridpts</span>
-<span class="sd">        </span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        - A good first approximation of the CV thickness is about two times the smallest dye radius</span>
 <span class="sd">        - The CV fraction can be calculated from the residual fluorescence anisotropy</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">grid_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">)</span>
+        <span class="n">grid_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
         <span class="n">tag_1d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tag_volume</span><span class="p">(</span><span class="n">grid_1d</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">cv_thickness</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">weight_cv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weight_factor</span><span class="p">(</span><span class="n">grid_1d</span><span class="p">,</span> <span class="n">cv_fraction</span><span class="p">)</span>
@@ -730,32 +895,26 @@
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;One accessible volume is empty&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">volume1</span> <span class="o">=</span> <span class="n">volume1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">volume2</span> <span class="o">=</span> <span class="n">volume2</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fret_pair</span> <span class="o">=</span> <span class="n">fret_pair</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">R0</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s1">&#39;Distance&#39;</span><span class="p">][</span><span class="n">fret_pair</span><span class="p">][</span><span class="s2">&quot;R0&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s1">&#39;Distance&#39;</span><span class="p">][</span><span class="n">fret_pair</span><span class="p">][</span><span class="s2">&quot;n_dist&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">use_LabelLib</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([</span><span class="n">volume1</span><span class="o">.</span><span class="n">use_LabelLib</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">use_LabelLib</span><span class="p">])</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_LabelLib</span> <span class="ow">and</span> <span class="n">_LabelLib_found</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">R_DA</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">dists_DA_ll</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span> <span class="o">=</span> <span class="n">R_DA</span>
+                    <span class="n">R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">dists_DA_ll</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mean_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_dist_DA_ll</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="n">R_DA</span><span class="p">)</span>
+                <span class="n">E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="n">R_DA</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mean_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_FRET_DA_ll</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">E_DA</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="n">E_DA</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">R_DA</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">dists_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span> <span class="o">=</span> <span class="n">R_DA</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">mean_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R_DA</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">mean_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">E_DA</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">E_DA</span><span class="p">)</span>
+                    <span class="n">R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">dists_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">n_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dist</span><span class="p">,</span> <span class="n">return_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mean_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="n">R_DA</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_R_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_dist_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="n">R_DA</span><span class="p">)</span>
+                <span class="n">E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">R_DA</span><span class="o">=</span><span class="n">R_DA</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mean_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="n">E_DA</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sigma_E_DA</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_FRET_DA</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">E_DA</span><span class="o">=</span><span class="n">E_DA</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mean_R_DA_E</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">mean_dist_DA_fromFRET</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">mean_E_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mean_E_DA</span><span class="p">,</span>
                                                           <span class="n">R0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sigma_R_DA_E</span> <span class="o">=</span> <span class="n">fret</span><span class="o">.</span><span class="n">std_dist_DA_fromFRET</span><span class="p">(</span><span class="n">volume1</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">volume2</span><span class="o">.</span><span class="n">acv</span><span class="p">,</span> <span class="n">mean_E_DA</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mean_E_DA</span><span class="p">,</span>
@@ -787,15 +946,15 @@
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The length of volume_list1 and volume_list2 is not the same&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">printProgressBar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_vols1</span><span class="p">)</span>
-            <span class="n">fret_trajectory</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">fret</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_vols1</span><span class="p">):</span>
                 <span class="n">fret_value</span> <span class="o">=</span> <span class="n">FRET</span><span class="p">(</span><span class="n">volume_list1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">volume_list2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fret_pair</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">R_DA</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">volume_list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">acv</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">volume_list2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">acv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skip list entry </span><span class="si">{:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">fret_trajectory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fret_value</span><span class="p">)</span>
+                    <span class="n">fret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fret_value</span><span class="p">)</span>
                 <span class="n">printProgressBar</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_vols1</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">fret_trajectory</span></div>
+            <span class="k">return</span> <span class="n">fret</span></div>
 
 <div class="viewcode-block" id="FRET.save_fret"><a class="viewcode-back" href="../../module/cloud.html#fretraj.cloud.FRET.save_fret">[docs]</a>    <span class="k">def</span> <span class="nf">save_fret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Write the FRET calculation to a json file</span>
@@ -810,9 +969,7 @@
 
 <span class="sd">        &gt;&gt;&gt; obj.save_FRET(&#39;parameters.json&#39;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">fret_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">fret_results</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1235,7 +1392,7 @@
 <span class="sd">            file format for ACV</span>
 <span class="sd">        **kwargs : dict</span>
 <span class="sd">            key value pairs for .xyz files are {write_weights : bool, encode_element : bool}</span>
-<span class="sd">        </span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        - `write_weights` includes the weights of each point as an additional column in the .xyz file</span>
@@ -1259,7 +1416,7 @@
             <span class="n">file_str</span> <span class="o">=</span> <span class="n">export</span><span class="o">.</span><span class="n">xyz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">mp</span><span class="p">,</span> <span class="n">write_weights</span><span class="p">,</span> <span class="n">encode_element</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;open_dx&#39;</span><span class="p">:</span>
             <span class="n">d_xyz</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_spacing</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
-            <span class="n">xyz_min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">originXYZ</span>
+            <span class="n">xyz_min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="o">.</span><span class="n">originXYZ</span>
             <span class="n">file_str</span> <span class="o">=</span> <span class="n">export</span><span class="o">.</span><span class="n">open_dx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">xyz_min</span><span class="p">,</span> <span class="n">d_xyz</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">file_str</span> <span class="o">=</span> <span class="n">export</span><span class="o">.</span><span class="n">pdb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">cloud_xyzqt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">acv</span><span class="o">.</span><span class="n">mp</span><span class="p">)</span>
@@ -1470,13 +1627,13 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
