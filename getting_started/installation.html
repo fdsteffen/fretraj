@@ -301,8 +301,8 @@
 <div class="section" id="install-pymol-and-fretraj">
 <h2>1. Install PyMOL and FRETraj<a class="headerlink" href="#install-pymol-and-fretraj" title="Permalink to this headline">¶</a></h2>
 <div class="tabbed-set docutils">
-<input checked="checked" id="89ad5c2a-9136-4411-94d9-4b9d34f80785" name="e12fbb78-a2a0-4148-ac49-e3395981f00b" type="radio">
-</input><label class="tabbed-label" for="89ad5c2a-9136-4411-94d9-4b9d34f80785">
+<input checked="checked" id="cc68c734-136a-4722-804f-75f43e1c94b5" name="efd6f15b-1134-4b85-a25c-a60726f87160" type="radio">
+</input><label class="tabbed-label" for="cc68c734-136a-4722-804f-75f43e1c94b5">
 For Windows</label><div class="tabbed-content docutils">
 <ul>
 <li><p>Get the latest binaries of PyMOL from <a class="reference external" href="https://pymol.org/">Schrödinger</a></p></li>
@@ -318,8 +318,8 @@ For Windows</label><div class="tabbed-content docutils">
 </li>
 </ul>
 </div>
-<input id="955e0550-c1a8-41e0-aab6-44123c7b204e" name="e12fbb78-a2a0-4148-ac49-e3395981f00b" type="radio">
-</input><label class="tabbed-label" for="955e0550-c1a8-41e0-aab6-44123c7b204e">
+<input id="22ef489e-c0e0-4b07-9deb-d0f3bdfc229c" name="efd6f15b-1134-4b85-a25c-a60726f87160" type="radio">
+</input><label class="tabbed-label" for="22ef489e-c0e0-4b07-9deb-d0f3bdfc229c">
 For Linux and macOS</label><div class="tabbed-content docutils">
 <ul>
 <li><p>Install the PyMOL binaries from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or directly from the Schrödinger Anaconda channel.</p>
@@ -333,38 +333,30 @@ For Linux and macOS</label><div class="tabbed-content docutils">
 </li>
 <li><p>Install <em>FRETraj</em> either from <strong>PyPI</strong> (with <code class="docutils literal notranslate"><span class="pre">pip</span></code>), <strong>Anaconda</strong> (with <code class="docutils literal notranslate"><span class="pre">conda</span></code>) or <strong>Github</strong> (clone or <a class="reference external" href="https://github.com/RNA-FRETools/fretraj.git">download</a> and install from source with <code class="docutils literal notranslate"><span class="pre">poetry</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>).</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dc46e567-dac6-4f43-95e8-359bd9e31fe0" name="f5b2c096-effc-48b7-b8dd-d165d3ebdea7" type="radio">
-</input><label class="tabbed-label" for="dc46e567-dac6-4f43-95e8-359bd9e31fe0">
+<input checked="checked" id="93b8a77d-78d4-4382-9640-73616197095c" name="a24a8f33-62c1-46a6-a2f1-ec07d21bca87" type="radio">
+</input><label class="tabbed-label" for="93b8a77d-78d4-4382-9640-73616197095c">
 pip</label><div class="tabbed-content docutils">
 <p>Install from <strong>PyPI</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fretraj</span>
 </pre></div>
 </div>
 </div>
-<input id="b83b249f-91a0-48c6-b9c0-2d80569c5826" name="f5b2c096-effc-48b7-b8dd-d165d3ebdea7" type="radio">
-</input><label class="tabbed-label" for="b83b249f-91a0-48c6-b9c0-2d80569c5826">
+<input id="5d7c8f07-0400-4499-8b2f-7a3997a7b913" name="a24a8f33-62c1-46a6-a2f1-ec07d21bca87" type="radio">
+</input><label class="tabbed-label" for="5d7c8f07-0400-4499-8b2f-7a3997a7b913">
 conda</label><div class="tabbed-content docutils">
 <p>Install from <strong>Anaconda</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">fretraj</span> <span class="o">-</span><span class="n">c</span> <span class="n">rna</span><span class="o">-</span><span class="n">fretools</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
 </div>
-<input id="15fafaa2-3243-4b08-b0cc-0b9d6705f6ed" name="f5b2c096-effc-48b7-b8dd-d165d3ebdea7" type="radio">
-</input><label class="tabbed-label" for="15fafaa2-3243-4b08-b0cc-0b9d6705f6ed">
+<input id="d3179c8b-f278-4240-aefd-e1a75a49c20f" name="a24a8f33-62c1-46a6-a2f1-ec07d21bca87" type="radio">
+</input><label class="tabbed-label" for="d3179c8b-f278-4240-aefd-e1a75a49c20f">
 from source</label><div class="tabbed-content docutils">
-<p>Install the latest development version from <strong>Github</strong> (with pip or <a class="reference external" href="https://python-poetry.org/">Poetry</a>)</p>
-<div class="toggle docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Poetry (recommended)</span>
-<span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">/</span><span class="n">poetry</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">python</span>
-</pre></div>
-</div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RNA</span><span class="o">-</span><span class="n">FRETools</span><span class="o">/</span><span class="n">fretraj</span><span class="o">.</span><span class="n">git</span>
+<p>Install the latest development version from <strong>Github</strong> with <a class="reference external" href="https://python-poetry.org/">Poetry</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">/</span><span class="n">poetry</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">python</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RNA</span><span class="o">-</span><span class="n">FRETools</span><span class="o">/</span><span class="n">fretraj</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">fretraj</span><span class="o">/</span>
-<span class="n">poetry</span> <span class="n">install</span>   <span class="c1"># install in editable mode</span>
-
-<span class="c1"># alternatively, install in non-editable mode with pip</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>  
+<span class="n">poetry</span> <span class="n">install</span>
 </pre></div>
 </div>
 </div>
@@ -399,15 +391,15 @@ from source</label><div class="tabbed-content docutils">
 <p class="admonition-title">Accelerated ACV calculation with LabelLib</p>
 <p>For faster computation of the accessible-contact volumes you may additionally consider installing the C++ library <a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib">LabelLib</a> with either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>. However, is not strictly required since <em>FRETraj</em> features a built-in Python implementation of the ACV algorithm.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="12ce1b60-b35a-4c5d-8b44-9e3957e40627" name="e9251d0a-a5dc-4f85-b2c2-0a4d1875a2d0" type="radio">
-</input><label class="tabbed-label" for="12ce1b60-b35a-4c5d-8b44-9e3957e40627">
+<input checked="checked" id="0495465a-1c03-4675-83af-1eb9bb211a45" name="414a7ad8-9864-4834-a3f1-62116959881b" type="radio">
+</input><label class="tabbed-label" for="0495465a-1c03-4675-83af-1eb9bb211a45">
 pip</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">labellib</span>
 </pre></div>
 </div>
 </div>
-<input id="76cdb8e1-f4ba-4b4e-a2df-8f79a74f5395" name="e9251d0a-a5dc-4f85-b2c2-0a4d1875a2d0" type="radio">
-</input><label class="tabbed-label" for="76cdb8e1-f4ba-4b4e-a2df-8f79a74f5395">
+<input id="82c6becc-b70d-4ccf-92dc-c7d2d202cde0" name="414a7ad8-9864-4834-a3f1-62116959881b" type="radio">
+</input><label class="tabbed-label" for="82c6becc-b70d-4ccf-92dc-c7d2d202cde0">
 conda</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">labellib</span> <span class="o">-</span><span class="n">c</span> <span class="n">tpeulen</span>
 </pre></div>
