@@ -288,18 +288,15 @@
                 
   <div class="section" id="welcome-to-fretraj">
 <h1>Welcome to FRETraj<a class="headerlink" href="#welcome-to-fretraj" title="Permalink to this headline">¶</a></h1>
-<p><em>FRETraj</em> is a Python module for calculating <strong>multiple accessible-contact volumes</strong> (multi-ACV) and predicting <strong>FRET efficiencies</strong>. It provides an interface to the <a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib"><em>LabelLib</em></a> library to simulate fluorophore dynamics. The package features a user-friendly <strong>PyMOL plugin</strong> <a class="footnote-reference brackets" href="#pymol" id="id1">1</a> which can be used to explore different labeling positions when designing FRET experiments. In an AV simulation the fluorophore distribution is estimated by a shortest path search (Djikstra algorithm) using a coarse-grained dye probe. <em>FRETraj</em> further implements a <strong>Python-only</strong> version of the geometrical clash search used in <em>LabelLib</em>. This should facilitate prototyping of new features for the ACV algorithm.</p>
+<p><em>FRETraj</em> is a Python module for <strong>predicting FRET efficiencies</strong> by calculating multiple accessible-contact volumes (multi-ACV) to estimate donor and acceptor dye dynamics. The package features a user-friendly <strong>PyMOL plugin</strong> <a class="footnote-reference brackets" href="#pymol" id="id1">1</a> for FRET-assisted, integrative structural modeling. It interfaces with the <a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib"><em>LabelLib</em></a> library for fast computation of ACVs. Specifically, <em>FRETraj</em> is designed to:</p>
+<ul class="simple">
+<li><p>plan (single-molecule) FRET experiments by optimizing <strong>labeling positions</strong></p></li>
+<li><p>interpret FRET-based <strong>distance measurements</strong> on a biomolecule</p></li>
+<li><p>integrate FRET experiments with <strong>molecular dynamics</strong> simulations</p></li>
+</ul>
 <div class="figure align-left" id="graphical-abstract">
 <a class="reference internal image-reference" href="_images/graphical_abstract.png"><img alt="_images/graphical_abstract.png" src="_images/graphical_abstract.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic of <em>FRETraj</em>: A fluorophore (here Cy3) is parametrized by five distances (<span class="math notranslate nohighlight">\(R_1-R_3\)</span>, <span class="math notranslate nohighlight">\(L_\text{linker}\)</span> and <span class="math notranslate nohighlight">\(W_\text{linker}\)</span>). The extent of surface stacking is assessed by fluorescence anisotropy decays. Accessible-contact volume calculations and FRET predictions are implemented in PyMOL (with a GUI) and Jupyter notebooks (for large-scale analyses).</span><a class="headerlink" href="#graphical-abstract" title="Permalink to this image">¶</a></p>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
 </div>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
@@ -307,6 +304,14 @@
 <dd><p>PyMOL is a trademark of Schrödinger, LLC.</p>
 </dd>
 </dl>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">

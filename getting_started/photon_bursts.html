@@ -311,7 +311,7 @@
 <h1>Generating photon bursts<a class="headerlink" href="#generating-photon-bursts" title="Permalink to this headline">¶</a></h1>
 <p><em>FRETraj</em> predicts mean FRET efficiencies and distributions thereof for dynamic biomolecules as outlined in the
 previous sections. FRET histograms of single-molecule experiments are often broadened due to shot-noise.
-For better comparison of <em>in vitro</em> and <em>in silico</em> FRET measurements, <em>FRETraj</em> can take the <strong>photon noise</strong> into account by simulating fluorescence emission events. The probabilities of donor and acceptor emission are dependent on the quantum yields and fluroescence lifetimes of the dyes as well as the transfer efficiency and thus the distance between their ACVs <span id="id1">[<a class="reference internal" href="../references.html#id8"><span>6</span></a>,<a class="reference internal" href="../references.html#id7"><span>7</span></a>]</span>.
+For better comparison of <em>in vitro</em> and <em>in silico</em> FRET measurements, <em>FRETraj</em> can take the <strong>photon noise</strong> into account by simulating fluorescence emission events. The probabilities of donor and acceptor emission are dependent on the quantum yields and fluroescence lifetimes of the dyes as well as the transfer efficiency and thus the distance between their ACVs <span id="id1">[<a class="reference internal" href="../references.html#id8">6</a>, <a class="reference internal" href="../references.html#id7">7</a>]</span>.
 This notebook show how to simulate <strong>photon bursts</strong> similar to a confocal single-molecule experiment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -329,8 +329,11 @@ ACV calculations will use a Python-only algorithm
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "9c63cbe1570540cf92818fc4e2e45830"}
-</script></div>
+{"version_major": 2, "version_minor": 0, "model_id": "ac71c4ed23af41249cea932b059cfae1"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The burst submodule could not be imported
+</pre></div>
+</div>
+</div>
 </div>
 <p>First, we load a parameter file for the burst simulation. The format of this file is described <a class="reference external" href="../background/parameter_file.html#burst-simulation">here</a></p>
 <div class="cell tag_hide-output docutils container">
@@ -341,29 +344,13 @@ ACV calculations will use a Python-only algorithm
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dyes&#39;: {&#39;tauD&#39;: 1,
-  &#39;tauA&#39;: 1.4,
-  &#39;QD&#39;: 0.2,
-  &#39;QA&#39;: 0.2,
-  &#39;dipole_angle_abs_em&#39;: 10},
- &#39;sampling&#39;: {&#39;nbursts&#39;: 5000,
-  &#39;skipframesatstart&#39;: 0,
-  &#39;skipframesatend&#39;: 1000,
-  &#39;multiprocessing&#39;: True},
- &#39;fret&#39;: {&#39;R0&#39;: 5.4,
-  &#39;kappasquare&#39;: 0.6666,
-  &#39;no_gamma&#39;: False,
-  &#39;quenching_radius&#39;: 1},
- &#39;species&#39;: {&#39;name&#39;: [&#39;all&#39;],
-  &#39;unix_pattern_rkappa&#39;: [&#39;R_kappa.dat&#39;],
-  &#39;probability&#39;: [1],
-  &#39;n_trajectory_splits&#39;: None},
- &#39;bursts&#39;: {&#39;lower_limit&#39;: 15,
-  &#39;upper_limit&#39;: 150,
-  &#39;lambda&#39;: -2.3,
-  &#39;averaging&#39;: &#39;all&#39;,
-  &#39;QY_correction&#39;: False,
-  &#39;burst_size_file&#39;: None}}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="n">a0d749f09d8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">readParameters</span><span class="p">(</span><span class="s1">&#39;burst_data/burst_parameters.json&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">parameters</span>
+
+<span class="ne">AttributeError</span>: module &#39;fretraj&#39; has no attribute &#39;burst&#39;
 </pre></div>
 </div>
 </div>
@@ -375,58 +362,6 @@ ACV calculations will use a Python-only algorithm
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>R_DA (nm)</th>
-      <th>kappasquare</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.0</th>
-      <td>5.09</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>100.0</th>
-      <td>5.12</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>200.0</th>
-      <td>5.16</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>300.0</th>
-      <td>5.11</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>400.0</th>
-      <td>5.38</td>
-      <td>0.66</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>An analytical burst size distribution <span class="math notranslate nohighlight">\(P(x)\)</span> is specified as a power law with a coefficient <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="math notranslate nohighlight">
@@ -435,29 +370,6 @@ ACV calculations will use a Python-only algorithm
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="s1">&#39;burst_data/&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading files...
-Orientation independent R0_const = 5.8 A
-
-              donor    acceptor
-QY            0.20    0.20
-tau (ns)      1.00    1.40
-k_f (ns^-1)   0.20    0.14
-k_ic (ns^-1)  0.80    0.57
-              
-Burst averaging method: all
-Calculate anisotropy: no
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "49eb44503cd04d1787739833e2a84bf8"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Combining burst...
-
-
-average FRET efficiency: 0.56 +- 0.10
 </pre></div>
 </div>
 </div>
@@ -474,18 +386,9 @@ average FRET efficiency: 0.56 +- 0.10
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/photon_bursts_10_0.png" src="../_images/photon_bursts_10_0.png" />
-</div>
 </div>
 <p>Launch <strong>Binder</strong> 🚀 to interact with this notebook.</p>
 </div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"3e31ee00c9a44931beeae3aa1ffa934b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9c63cbe1570540cf92818fc4e2e45830": {"model_name": "ColormakerRegistryModel", "model_module": "nglview-js-widgets", "model_module_version": "2.7.7", "state": {"_dom_classes": [], "_model_module": "nglview-js-widgets", "_model_module_version": "2.7.7", "_model_name": "ColormakerRegistryModel", "_msg_ar": [], "_msg_q": [], "_ready": false, "_view_count": null, "_view_module": "nglview-js-widgets", "_view_module_version": "2.7.7", "_view_name": "ColormakerRegistryView", "layout": "IPY_MODEL_3e31ee00c9a44931beeae3aa1ffa934b"}}, "b90cef004ee14835ab028a5f0bf54df3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "683e7b8eed1f4b3eb4c3c68de4f7d65b": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "5b69002bdea74cb886d1856d55773d92": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_b90cef004ee14835ab028a5f0bf54df3", "max": 5000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_683e7b8eed1f4b3eb4c3c68de4f7d65b", "value": 5000.0}}, "28a9271e0a56489db7fb1bcfafefda6d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "25975b96e2f34f32bd304f70270581ce": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "5481b868628841dc88e07f2583d2340c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_28a9271e0a56489db7fb1bcfafefda6d", "placeholder": "\u200b", "style": "IPY_MODEL_25975b96e2f34f32bd304f70270581ce", "value": "Calculating bursts: 100%"}}, "e2f4002c3c6c4798909367195351bdc8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "93d0aac5a33d4f8194370a9cc49396c8": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b9d12709b21543f5abd0c17845529b60": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_e2f4002c3c6c4798909367195351bdc8", "placeholder": "\u200b", "style": "IPY_MODEL_93d0aac5a33d4f8194370a9cc49396c8", "value": " 5000/5000 [00:00 s]"}}, "5357748fe88e461e85c8cce596c55aab": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "49eb44503cd04d1787739833e2a84bf8": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5481b868628841dc88e07f2583d2340c", "IPY_MODEL_5b69002bdea74cb886d1856d55773d92", "IPY_MODEL_b9d12709b21543f5abd0c17845529b60"], "layout": "IPY_MODEL_5357748fe88e461e85c8cce596c55aab"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
