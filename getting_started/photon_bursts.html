@@ -42,8 +42,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -324,46 +322,25 @@ This notebook show how to simulate <strong>photon bursts</strong> similar to a c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: the LabelLib module is not installed. 
-ACV calculations will use a Python-only algorithm
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">afb90c5da12a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">fretraj</span> <span class="k">as</span> <span class="nn">ft</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;fretraj&#39;
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "4843ccf56f23455a84121ef189320127"}
-</script></div>
+</div>
 </div>
 <p>First, we load a parameter file for the burst simulation. The format of this file is described <a class="reference external" href="../background/parameter_file.html#burst-simulation">here</a></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">readParameters</span><span class="p">(</span><span class="s1">&#39;burst_data/burst_parameters.json&#39;</span><span class="p">)</span>
 <span class="n">parameters</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dyes&#39;: {&#39;tauD&#39;: 1,
-  &#39;tauA&#39;: 1.4,
-  &#39;QD&#39;: 0.2,
-  &#39;QA&#39;: 0.2,
-  &#39;dipole_angle_abs_em&#39;: 10},
- &#39;sampling&#39;: {&#39;nbursts&#39;: 5000,
-  &#39;skipframesatstart&#39;: 0,
-  &#39;skipframesatend&#39;: 1000,
-  &#39;multiprocessing&#39;: True},
- &#39;fret&#39;: {&#39;R0&#39;: 5.4,
-  &#39;kappasquare&#39;: 0.6666,
-  &#39;no_gamma&#39;: False,
-  &#39;quenching_radius&#39;: 1},
- &#39;species&#39;: {&#39;name&#39;: [&#39;all&#39;],
-  &#39;unix_pattern_rkappa&#39;: [&#39;R_kappa.dat&#39;],
-  &#39;probability&#39;: [1],
-  &#39;n_trajectory_splits&#39;: None},
- &#39;bursts&#39;: {&#39;lower_limit&#39;: 15,
-  &#39;upper_limit&#39;: 150,
-  &#39;lambda&#39;: -2.3,
-  &#39;averaging&#39;: &#39;all&#39;,
-  &#39;QY_correction&#39;: False,
-  &#39;burst_size_file&#39;: None}}
 </pre></div>
 </div>
 </div>
@@ -375,58 +352,6 @@ ACV calculations will use a Python-only algorithm
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>R_DA (nm)</th>
-      <th>kappasquare</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.0</th>
-      <td>5.09</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>100.0</th>
-      <td>5.12</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>200.0</th>
-      <td>5.16</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>300.0</th>
-      <td>5.11</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>400.0</th>
-      <td>5.38</td>
-      <td>0.66</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>An analytical burst size distribution <span class="math notranslate nohighlight">\(P(x)\)</span> is specified as a power law with a coefficient <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="math notranslate nohighlight">
@@ -435,29 +360,6 @@ ACV calculations will use a Python-only algorithm
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="s1">&#39;burst_data/&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading files...
-Orientation independent R0_const = 5.8 A
-
-              donor    acceptor
-QY            0.20    0.20
-tau (ns)      1.00    1.40
-k_f (ns^-1)   0.20    0.14
-k_ic (ns^-1)  0.80    0.57
-              
-Burst averaging method: all
-Calculate anisotropy: no
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d14d9966f98a4589b750921676d007bc"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Combining burst...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average FRET efficiency: 0.56 +- 0.10
 </pre></div>
 </div>
 </div>
@@ -474,18 +376,9 @@ Calculate anisotropy: no
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/photon_bursts_10_0.png" src="../_images/photon_bursts_10_0.png" />
-</div>
 </div>
 <p>Launch <strong>Binder</strong> 🚀 to interact with this notebook.</p>
 </div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"af29f4133dcf424b8f6a4161be9a9207": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4843ccf56f23455a84121ef189320127": {"model_name": "ColormakerRegistryModel", "model_module": "nglview-js-widgets", "model_module_version": "3.0.1", "state": {"_dom_classes": [], "_model_module": "nglview-js-widgets", "_model_module_version": "3.0.1", "_model_name": "ColormakerRegistryModel", "_msg_ar": [], "_msg_q": [], "_ready": false, "_view_count": null, "_view_module": "nglview-js-widgets", "_view_module_version": "3.0.1", "_view_name": "ColormakerRegistryView", "layout": "IPY_MODEL_af29f4133dcf424b8f6a4161be9a9207"}}, "2e2998df4cdd406db838d91622cac254": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b2dc9f7ed2dd4ea9b0fc172a053d576c": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "fd5c5a339100468096ee9b75026ddb6c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_2e2998df4cdd406db838d91622cac254", "max": 5000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_b2dc9f7ed2dd4ea9b0fc172a053d576c", "value": 5000.0}}, "6fb7391cbf464588b4c14488f9f20bcd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2c861d8b6a26449388dffb7eea52b6e6": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "a1ea22da36764e39a57304c45a2c6fe3": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_6fb7391cbf464588b4c14488f9f20bcd", "placeholder": "\u200b", "style": "IPY_MODEL_2c861d8b6a26449388dffb7eea52b6e6", "value": "Calculating bursts: 100%"}}, "5be0c1023ab34a2e89129f4db14f13f5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "29a9b683893d4580be800a13363dae5d": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "0c5e3134d3264d7c893cf159ed92d8a0": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_5be0c1023ab34a2e89129f4db14f13f5", "placeholder": "\u200b", "style": "IPY_MODEL_29a9b683893d4580be800a13363dae5d", "value": " 5000/5000 [00:00 s]"}}, "8c5528dfeb114bc28f13f9b78bda599e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d14d9966f98a4589b750921676d007bc": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_a1ea22da36764e39a57304c45a2c6fe3", "IPY_MODEL_fd5c5a339100468096ee9b75026ddb6c", "IPY_MODEL_0c5e3134d3264d7c893cf159ed92d8a0"], "layout": "IPY_MODEL_8c5528dfeb114bc28f13f9b78bda599e"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
