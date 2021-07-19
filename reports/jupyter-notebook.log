@@ -17,20 +17,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import mdtraj as md
-import fretraj as ft
-import os
-example_dir = '../../src/fretraj/examples/'
+acv_D_traj = ft.cloud.create_acv_traj([acv_D])
+acv_A_traj = ft.cloud.create_acv_traj([acv_A])
+ft.jupyter.nglview_trajectory_ACV(struct, acv_D_traj['FV'], acv_A_traj['FV'], 
+                                          acv_D_traj['CV'], acv_A_traj['CV'])
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-87c6269e5a3a>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;32mimport[0m [0mmdtraj[0m [0;32mas[0m [0mmd[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0;32mimport[0m [0mfretraj[0m [0;32mas[0m [0mft[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mexample_dir[0m [0;34m=[0m [0;34m'../../src/fretraj/examples/'[0m[0;34m[0m[0;34m[0m[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-6-27525603ec9e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0macv_D_traj[0m [0;34m=[0m [0mft[0m[0;34m.[0m[0mcloud[0m[0;34m.[0m[0mcreate_acv_traj[0m[0;34m([0m[0;34m[[0m[0macv_D[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0macv_A_traj[0m [0;34m=[0m [0mft[0m[0;34m.[0m[0mcloud[0m[0;34m.[0m[0mcreate_acv_traj[0m[0;34m([0m[0;34m[[0m[0macv_A[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m ft.jupyter.nglview_trajectory_ACV(struct, acv_D_traj['FV'], acv_A_traj['FV'], 
+[0m[1;32m      4[0m                                           acv_D_traj['CV'], acv_A_traj['CV'])
 
-[0;31mModuleNotFoundError[0m: No module named 'fretraj'
-ModuleNotFoundError: No module named 'fretraj'
+[0;31mAttributeError[0m: module 'fretraj' has no attribute 'jupyter'
+AttributeError: module 'fretraj' has no attribute 'jupyter'
 

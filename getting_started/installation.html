@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -336,8 +338,8 @@
 <h3>1.1 Install PyMOL and FRETraj<a class="headerlink" href="#install-pymol-and-fretraj" title="Permalink to this headline">¶</a></h3>
 <p><a name="install-manually"></a></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="67c27508-f69f-4952-b4e8-8010884f700b" name="704e36e0-6ecc-448e-b520-87fc64f6ec33" type="radio">
-</input><label class="tabbed-label" for="67c27508-f69f-4952-b4e8-8010884f700b">
+<input checked="checked" id="e2fde946-4424-492e-8c25-effa49f00c35" name="66f96d29-fe4c-473f-8585-1d6728c3bcac" type="radio">
+</input><label class="tabbed-label" for="e2fde946-4424-492e-8c25-effa49f00c35">
 For Windows</label><div class="tabbed-content docutils">
 <ul>
 <li><p>Get PyMOL from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or follow the instructions <a class="reference external" href="https://pymolwiki.org/index.php/Windows_Install">here</a>.</p></li>
@@ -354,23 +356,31 @@ For Windows</label><div class="tabbed-content docutils">
 </li>
 </ul>
 </div>
-<input id="7b126eb7-ebed-4614-ba53-987e86401d6e" name="704e36e0-6ecc-448e-b520-87fc64f6ec33" type="radio">
-</input><label class="tabbed-label" for="7b126eb7-ebed-4614-ba53-987e86401d6e">
+<input id="8ca4d7db-b71d-45ad-8d81-5987e9c32bdf" name="66f96d29-fe4c-473f-8585-1d6728c3bcac" type="radio">
+</input><label class="tabbed-label" for="8ca4d7db-b71d-45ad-8d81-5987e9c32bdf">
 For Linux</label><div class="tabbed-content docutils">
 <ul>
 <li><p>Get PyMOL either from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or from your package manager (e.g. on Ubuntu <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">pymol</span></code>). Alternatively, you can compile PyMOL yourself from the source code on <a class="reference external" href="https://github.com/schrodinger/pymol-open-source">Github</a>.</p></li>
-<li><p>Install <em>FRETraj</em> with pip or build it from source</p>
+<li><p>Install <em>FRETraj</em></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="02695af2-c96f-4f93-aa3c-1aeb5c0a8ffa" name="0e1bdfee-4563-4bd8-a5c5-7ba8c2642e25" type="radio">
-</input><label class="tabbed-label" for="02695af2-c96f-4f93-aa3c-1aeb5c0a8ffa">
+<input checked="checked" id="b983c9cf-068e-4e8c-96cb-6cb9becc70a2" name="6ce40a97-6649-4f95-a6f5-21d133c8c8e1" type="radio">
+</input><label class="tabbed-label" for="b983c9cf-068e-4e8c-96cb-6cb9becc70a2">
 pip</label><div class="tabbed-content docutils">
 <p>Install from <strong>PyPI</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fretraj</span>
 </pre></div>
 </div>
 </div>
-<input id="d85a30b2-68cc-40c2-aed2-5172b6d3d193" name="0e1bdfee-4563-4bd8-a5c5-7ba8c2642e25" type="radio">
-</input><label class="tabbed-label" for="d85a30b2-68cc-40c2-aed2-5172b6d3d193">
+<input id="fd4d8bce-8a4a-40d1-828e-b8645140a990" name="6ce40a97-6649-4f95-a6f5-21d133c8c8e1" type="radio">
+</input><label class="tabbed-label" for="fd4d8bce-8a4a-40d1-828e-b8645140a990">
+conda</label><div class="tabbed-content docutils">
+<p>Install from the <strong>conda-forge</strong> channel on <a class="reference external" href="http://Anaconda.org">Anaconda.org</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">fretraj</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+</div>
+<input id="ea3b2612-f5f5-496e-8f5f-40496e362f14" name="6ce40a97-6649-4f95-a6f5-21d133c8c8e1" type="radio">
+</input><label class="tabbed-label" for="ea3b2612-f5f5-496e-8f5f-40496e362f14">
 from source</label><div class="tabbed-content docutils">
 <p>Install the latest development version from <a class="reference external" href="https://github.com/RNA-FRETools/fretraj.git">Github</a> with <a class="reference external" href="https://python-poetry.org/">Poetry</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">/</span><span class="n">poetry</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">python</span>
@@ -404,15 +414,15 @@ from source</label><div class="tabbed-content docutils">
 <p class="admonition-title">Tip</p>
 <p>For faster computation of the accessible-contact volumes you may additionally consider installing the C++ library <a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib">LabelLib</a> with either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>. However, this is not required since <em>FRETraj</em> features a built-in Python implementation of the ACV algorithm.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="fa47e87a-953c-4cc2-8bee-48a1c17f8865" name="ce13fddb-9e21-45d2-abb3-f86846bf48c5" type="radio">
-</input><label class="tabbed-label" for="fa47e87a-953c-4cc2-8bee-48a1c17f8865">
+<input checked="checked" id="5f6b159e-6d5b-490d-8264-33395431982e" name="e92a8987-883d-4181-bdc2-fb3c701ad6b5" type="radio">
+</input><label class="tabbed-label" for="5f6b159e-6d5b-490d-8264-33395431982e">
 pip</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">labellib</span>
 </pre></div>
 </div>
 </div>
-<input id="c4d4fd2c-9111-48e5-942f-5c318860c904" name="ce13fddb-9e21-45d2-abb3-f86846bf48c5" type="radio">
-</input><label class="tabbed-label" for="c4d4fd2c-9111-48e5-942f-5c318860c904">
+<input id="f2956ec5-272c-40bc-a0cf-e41cff3f7f37" name="e92a8987-883d-4181-bdc2-fb3c701ad6b5" type="radio">
+</input><label class="tabbed-label" for="f2956ec5-272c-40bc-a0cf-e41cff3f7f37">
 conda</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">labellib</span> <span class="o">-</span><span class="n">c</span> <span class="n">tpeulen</span>
 </pre></div>
@@ -439,12 +449,10 @@ Binaries for Windows, Linux and macOS are distributed by Schrödinger under acad
 <div class="section" id="juypter-notebook">
 <h2>2. Juypter notebook<a class="headerlink" href="#juypter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>If you prefer a programmatic approach to calculating accessible-contact volumes and predicting FRET efficiencies you may interact with <em>FRETraj</em> in a <a class="reference external" href="https://jupyter.org/">Jupyter</a> <span id="id2">[<a class="reference internal" href="../references.html#id10">2</a>]</span> notebook and use NGLview <span id="id3">[<a class="reference internal" href="../references.html#id13">3</a>]</span> instead of PyMOL for visualization. A demo notebook can be found <a class="reference external" href="https://github.com/RNA-FRETools/FRETraj-demo">here</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fretraj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fretraj</span>   <span class="c1"># Linux / macOS</span>
+<span class="ow">or</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">fretraj</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>   <span class="c1"># Linux / macOS / Windows</span>
 </pre></div>
-</div>
-<div class="admonition-note-on-pep-517 admonition">
-<p class="admonition-title">Note on PEP 517</p>
-<p>On Windows you likely need to first install <em>mdtraj</em> with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">mdtraj&gt;=1.9.5</span></code> as wheels are only available for Linux on PyPI.</p>
 </div>
 </div>
 </div>

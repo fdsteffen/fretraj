@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Making FRET predictions</title>
+    <title>Overview: module code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,13 +51,9 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/fretraj_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="FRETraj and Jupyter" href="jupyter-notebook.html" />
-    <link rel="prev" title="Calculating ACVs" href="acv_calculation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,24 +93,24 @@
   Getting started
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="installation.html">
+  <a class="reference internal" href="../getting_started/installation.html">
    Installation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="acv_calculation.html">
+  <a class="reference internal" href="../getting_started/acv_calculation.html">
    Calculating ACVs
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/fret_prediction.html">
    Making FRET predictions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="jupyter-notebook.html">
+  <a class="reference internal" href="../getting_started/jupyter-notebook.html">
    <em>
     FRETraj
    </em>
@@ -122,12 +118,12 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="trajectories.html">
+  <a class="reference internal" href="../getting_started/trajectories.html">
    Working with trajectories
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="photon_bursts.html">
+  <a class="reference internal" href="../getting_started/photon_bursts.html">
    Generating photon bursts
   </a>
  </li>
@@ -230,23 +226,6 @@
             </button>
             
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/getting_started/fret_prediction.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -258,7 +237,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fgetting_started/fret_prediction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2F_modules/index.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -287,57 +266,20 @@
         
               <div>
                 
-  <div class="section" id="making-fret-predictions">
-<h1>Making FRET predictions<a class="headerlink" href="#making-fret-predictions" title="Permalink to this headline">¶</a></h1>
-<p>Once a donor and acceptor ACV is calculated, we can predict a <strong>mean transfer efficiency</strong> <span class="math notranslate nohighlight">\(\langle E\rangle\)</span> based on the distance between the two volumes.</p>
-<div class="math notranslate nohighlight">
-\[ \langle\ E\rangle = \frac{1}{n\,m}\sum_{i=1}^n\sum_{j=1}^m\frac{1}{1+\parallel\mathbf{R}_{A,j}-\parallel\mathbf{R}_{D,i}\parallel^6 / R_0^6} \]</div>
-<p>Here, <span class="math notranslate nohighlight">\(\mathbf{R}_{D,i}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{R}_{A,j}\)</span> are the coordinate vectors of the points <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> in the donor and acceptor volume <span id="id1">[<a class="reference internal" href="../references.html#id15">4</a>, <a class="reference internal" href="../references.html#id6">5</a>]</span>.</p>
-<ol class="simple">
-<li><p><strong>R0</strong>: Förster radius of the dye pair</p></li>
-<li><p><strong># distances</strong>: number of distances to sample for the FRET calculation. The algorithm chooses <em>n</em> pairs of randomly distributed points in the donor and acceptor cloud and calculates their distance</p></li>
-<li><p>choose the <strong>donor</strong> and <strong>acceptor</strong> cloud from the drop down</p></li>
-<li><p><strong>Calculate FRET</strong>: start the FRET calculation. The mean FRET efficiency <span class="math notranslate nohighlight">\(\langle E\rangle\)</span>, the mean inter-dye distance <span class="math notranslate nohighlight">\(\langle R_{DA}\rangle\)</span> as well as the distances between the mean dye positions <span class="math notranslate nohighlight">\(\langle R_{MP}\rangle\)</span> or the two attachment sites are displayed in the table. The FRET parameters are also saved to a JSON file.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The style of the ACV clouds can be tuned with the <em>ACV visualization</em> settings:</p>
-<ul class="simple">
-<li><p><strong>contour levels</strong> of the accessible and contact volume</p></li>
-<li><p><strong>b-factor</strong> and the <strong>gaussian resolution</strong> define the smoothness of the cloud</p></li>
-<li><p><strong>grid buffer</strong> around the ACV</p></li>
-<li><p><strong>transparency</strong> of the cloud</p></li>
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="fretraj/burst.html">fretraj.burst</a></li>
+<li><a href="fretraj/cloud.html">fretraj.cloud</a></li>
+<li><a href="fretraj/export.html">fretraj.export</a></li>
+<li><a href="fretraj/fret.html">fretraj.fret</a></li>
+<li><a href="fretraj/grid.html">fretraj.grid</a></li>
+<li><a href="fretraj/jupyter.html">fretraj.jupyter</a></li>
 </ul>
-</div>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./getting_started"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="acv_calculation.html" title="previous page">Calculating ACVs</a>
-    <a class='right-next' id="next-link" href="jupyter-notebook.html" title="next page"><em>FRETraj</em> and Jupyter</a>
 
         </div>
         

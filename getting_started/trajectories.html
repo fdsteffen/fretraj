@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -324,20 +326,6 @@ available at <a class="reference external" href="https://github.com/RNA-FRETools
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e7c4e56a9e5f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">mdtraj</span> <span class="k">as</span> <span class="nn">md</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">fretraj</span> <span class="k">as</span> <span class="nn">ft</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;fretraj&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>First, we load multiple snapshots of the DNA hairpin from a 1<span class="math notranslate nohighlight">\(\,\mu\)</span>s MD trajectory as well as the associated labeling parameters.</p>
 <div class="cell docutils container">
@@ -348,6 +336,12 @@ available at <a class="reference external" href="https://github.com/RNA-FRETools
 <span class="n">labels</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">labeling_params</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_dir</span><span class="o">+</span><span class="s1">&#39;DNA_hairpin_labels.json&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;timestep: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">timestep</span><span class="o">/</span><span class="mi">1000</span> <span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;length: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span> <span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>timestep: 100 ns
+length: 1000 ns
 </pre></div>
 </div>
 </div>
@@ -377,6 +371,82 @@ available at <a class="reference external" href="https://github.com/RNA-FRETools
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>&lt;R_DA&gt; (A)</th>
+      <th>&lt;E_DA&gt;</th>
+      <th>&lt;R_DA_E&gt; (A)</th>
+      <th>R_attach (A)</th>
+      <th>R_mp (A)</th>
+      <th>time (ps)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>50.9</td>
+      <td>0.58</td>
+      <td>51.1</td>
+      <td>44.4</td>
+      <td>48.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>51.1</td>
+      <td>0.58</td>
+      <td>51.2</td>
+      <td>43.5</td>
+      <td>48.4</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49.8</td>
+      <td>0.61</td>
+      <td>50.2</td>
+      <td>42.9</td>
+      <td>47.1</td>
+      <td>200000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>50.6</td>
+      <td>0.59</td>
+      <td>50.8</td>
+      <td>43.8</td>
+      <td>47.9</td>
+      <td>300000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54.8</td>
+      <td>0.50</td>
+      <td>54.1</td>
+      <td>47.0</td>
+      <td>52.2</td>
+      <td>400000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Launch <strong>Binder</strong> 🚀 to visualize the multi-ACV trajectory.</p>
 <div class="cell tag_remove-output docutils container">

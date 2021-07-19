@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to FRETraj</title>
+    <title>Python Module Index</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,15 +51,15 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="_static/fretraj_logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="getting_started/installation.html" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -85,8 +85,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Welcome to FRETraj
   </a>
  </li>
@@ -229,23 +229,6 @@
             </button>
             
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -257,7 +240,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fpy-modindex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -286,60 +269,61 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-fretraj">
-<h1>Welcome to FRETraj<a class="headerlink" href="#welcome-to-fretraj" title="Permalink to this headline">¶</a></h1>
-<p><em>FRETraj</em> is a Python module for <strong>predicting FRET efficiencies</strong> by calculating multiple accessible-contact volumes (multi-ACV) to estimate donor and acceptor dye dynamics. The package features a user-friendly <strong>PyMOL plugin</strong> <a class="footnote-reference brackets" href="#pymol" id="id1">1</a> for FRET-assisted, integrative structural modeling. It interfaces with the <a class="reference external" href="https://github.com/Fluorescence-Tools/LabelLib"><em>LabelLib</em></a> library for fast computation of ACVs. Specifically, <em>FRETraj</em> is designed to:</p>
-<ul class="simple">
-<li><p>plan (single-molecule) FRET experiments by optimizing <strong>labeling positions</strong></p></li>
-<li><p>interpret FRET-based <strong>distance measurements</strong> on a biomolecule</p></li>
-<li><p>integrate FRET experiments with <strong>molecular dynamics</strong> simulations</p></li>
-</ul>
-<div class="figure align-left" id="graphical-abstract">
-<a class="reference internal image-reference" href="_images/graphical_abstract.png"><img alt="_images/graphical_abstract.png" src="_images/graphical_abstract.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic of <em>FRETraj</em>: A fluorophore (here Cy3) is parametrized by five distances (<span class="math notranslate nohighlight">\(R_1-R_3\)</span>, <span class="math notranslate nohighlight">\(L_\text{linker}\)</span> and <span class="math notranslate nohighlight">\(W_\text{linker}\)</span>). The extent of surface stacking is assessed by fluorescence anisotropy decays. Accessible-contact volume calculations and FRET predictions are implemented in PyMOL (with a GUI) and Jupyter notebooks (for large-scale analyses).</span><a class="headerlink" href="#graphical-abstract" title="Permalink to this image">¶</a></p>
-</div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="pymol"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>PyMOL is a trademark of Schrödinger, LLC.</p>
-</dd>
-</dl>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</div>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+   <h1>Python Module Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-f"><strong>f</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-f"><td></td><td>
+       <strong>f</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <code class="xref">fretraj</code></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/burst.html#module-fretraj.burst"><code class="xref">fretraj.burst</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/cloud.html#module-fretraj.cloud"><code class="xref">fretraj.cloud</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/utilities.html#module-fretraj.export"><code class="xref">fretraj.export</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/fret.html#module-fretraj.fret"><code class="xref">fretraj.fret</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/grid.html#module-fretraj.grid"><code class="xref">fretraj.grid</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="module/utilities.html#module-fretraj.jupyter"><code class="xref">fretraj.jupyter</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="getting_started/installation.html" title="next page">Installation</a>
 
         </div>
         
