@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducing FRET restraints</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/fretraj_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/fretraj_logo.png" class="logo" alt="logo">
+  
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to FRETraj
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acv_calculation.html">
+   Calculating ACVs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fret_prediction.html">
+   Making FRET predictions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter-notebook.html">
+   <em>
+    FRETraj
+   </em>
+   and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="trajectories.html">
+   Working with trajectories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="photon_bursts.html">
+   Generating photon bursts
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/accessible_volume.html">
+   The accessible volume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/contact_volume.html">
+   Dye interactions with the biomolecule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/parameter_file.html">
+   The parameter files
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/cloud.html">
+   Cloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/fret.html">
+   FRET
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/grid.html">
+   Grid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/burst.html">
+   Burst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/utilities.html">
+   Utilities
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/getting_started/FRET_restraints.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/getting_started/FRET_restraints.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RNA-FRETools/fretraj"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RNA-FRETools/fretraj/issues/new?title=Issue%20on%20page%20%2Fgetting_started/FRET_restraints.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/RNA-FRETools/fretraj/master?urlpath=tree/docs/getting_started/FRET_restraints.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessible-contact-volume">
+   Accessible contact volume
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introducing-fret-restraints">
+<h1>Introducing FRET restraints<a class="headerlink" href="#introducing-fret-restraints" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mdtraj</span> <span class="k">as</span> <span class="nn">md</span>
+<span class="kn">import</span> <span class="nn">fretraj</span> <span class="k">as</span> <span class="nn">ft</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: the LabelLib module is not installed. 
+ACV calculations will use a Python-only algorithm
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "50779075f4774987a61a77d3d210a57e"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="accessible-contact-volume">
+<h2>Accessible contact volume<a class="headerlink" href="#accessible-contact-volume" title="Permalink to this headline">¶</a></h2>
+<p>Calculate ACVs for donor and acceptor dye on an <strong>solvated and energy minimized</strong> biomolecule.</p>
+<blockquote>
+<div><p>Note: the generated .gro file must first be converted to a .pdb file using <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">labeling_params</span><span class="p">(</span><span class="s1">&#39;gmx/mn_riboswitch_labels.json&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load_pdb</span><span class="p">(</span><span class="s1">&#39;gmx/mn_riboswitch.pdb&#39;</span><span class="p">)</span>
+<span class="n">struct_nosolv</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">remove_solvent</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">don</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">struct_nosolv</span><span class="p">,</span> <span class="s1">&#39;1-B-U1-O5</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">struct_nosolv</span><span class="p">,</span> <span class="s1">&#39;1-A-A1-O5</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compute a FRET trajectory from the ACVs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fret_traj</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">FRET</span><span class="p">(</span><span class="n">don</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;A1-U1&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fret_traj</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>R0 (A)</th>
+      <th>&lt;R_DA&gt; (A)</th>
+      <th>&lt;E_DA&gt;</th>
+      <th>&lt;R_DA_E&gt; (A)</th>
+      <th>R_attach (A)</th>
+      <th>R_mp (A)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>value</th>
+      <td>54.0</td>
+      <td>96.1</td>
+      <td>0.04</td>
+      <td>91.8</td>
+      <td>86.6</td>
+      <td>94.4</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>10.7</td>
+      <td>0.03</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Create a Plumed object from the loaded structure and the ACVs. Look for neighboring phosphorus atoms within a range of 15 A.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plumed</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">restraints</span><span class="o">.</span><span class="n">Plumed</span><span class="p">(</span><span class="n">struct_nosolv</span><span class="p">,</span> <span class="p">[</span><span class="n">don</span><span class="p">,</span> <span class="n">acc</span><span class="p">],</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name P&#39;</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Set your desired FRET value that you want the simulation converge to. The corresponding <span class="math notranslate nohighlight">\(\langle R_{DA,E}\rangle\)</span> will be computed from the <span class="math notranslate nohighlight">\(\langle E\rangle\)</span>. The <span class="math notranslate nohighlight">\(\langle R_{mp}\rangle\)</span> will be calculated from <span class="math notranslate nohighlight">\(\langle E\rangle\)</span> using a third order polynomial (Kalinin et al., <em>Nat. Methods</em>, 2012)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">targetFRET</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">mean_R_DA_E</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">fret</span><span class="o">.</span><span class="n">mean_dist_DA_fromFRET</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="n">targetFRET</span><span class="p">,</span><span class="mi">54</span><span class="p">)</span>
+<span class="n">targetRmp</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">fret</span><span class="o">.</span><span class="n">R_DAE_to_Rmp</span><span class="p">(</span><span class="n">mean_R_DA_E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compile a plumed input file for the MD simulation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plumed</span><span class="o">.</span><span class="n">write_plumed</span><span class="p">(</span><span class="s1">&#39;gmx/out/plumed_A1-U1.dat&#39;</span><span class="p">,</span> <span class="n">targetRmp</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mf">4e13</span><span class="n">cd312cb2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plumed</span><span class="o">.</span><span class="n">write_plumed</span><span class="p">(</span><span class="s1">&#39;gmx/out/plumed_A1-U1.dat&#39;</span><span class="p">,</span> <span class="n">targetRmp</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="nn">~/work/fretraj/fretraj/src/fretraj/restraints.py</span> in <span class="ni">write_plumed</span><span class="nt">(self, filename, R_mp, kappa_dist, Rmp_kappa)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>             <span class="n">plumed_str</span> <span class="o">+=</span> <span class="s1">&#39;Rmp: DISTANCE ATOMS=mp1,mp2 NOPBC</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="n">plumed_str</span> <span class="o">+=</span> <span class="s1">&#39;RESTRAINT ARG=Rmp AT=</span><span class="si">{:0.1f}</span><span class="s1"> KAPPA=</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R_mp</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">Rmp_kappa</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plumed_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>             <span class="k">return</span> <span class="kc">True</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;gmx/out/plumed_A1-U1.dat&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To illustrate the restaints save a visualization skript for VMD or PyMOL which can be run with either <code class="docutils literal notranslate"><span class="pre">vmd_vis</span> <span class="pre">-c</span> <span class="pre">filename.gro</span> <span class="pre">-x</span> <span class="pre">trajectory.xtc</span> <span class="pre">-v</span> <span class="pre">vis.vmd</span></code> or <code class="docutils literal notranslate"><span class="pre">pymol_vis</span> <span class="pre">-c</span> <span class="pre">filename.gro</span> <span class="pre">-x</span> <span class="pre">trajectory.xtc</span> <span class="pre">-v</span> <span class="pre">vis.py</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plumed</span><span class="o">.</span><span class="n">write_vmd</span><span class="p">(</span><span class="s1">&#39;gmx/out/vis.vmd&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plumed</span><span class="o">.</span><span class="n">write_pymol</span><span class="p">(</span><span class="s1">&#39;gmx/out/vis.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Save force field and topology files files of the mean position pseudoatoms</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plumed</span><span class="o">.</span><span class="n">write_pseudo</span><span class="p">(</span><span class="s1">&#39;gmx/out/MP.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;gmx/out/MP.itp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">don</span><span class="o">.</span><span class="n">save_mp</span><span class="p">(</span><span class="s1">&#39;gmx/out/mn_riboswitch_D.dat&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;nm&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+<span class="n">acc</span><span class="o">.</span><span class="n">save_mp</span><span class="p">(</span><span class="s1">&#39;gmx/out/mn_riboswitch_A.dat&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;nm&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, backup the original .gro file. Then, insert the mean position coordinates given in <strong>MP.pdb</strong> at positions specified by <strong>riboswitch_D.dat</strong> and <strong>riboswitch_A.dat</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mv em/mn_riboswitch.gro em/mn_riboswitch_original.gro
+gmx insert-molecules -ci MP.pdb -f mn_riboswitch_original.gro -o mn_riboswitch.gro -ip out/mn_riboswitch_D.dat -replace water <span class="p">|&amp;</span> tee tmp_insert.dat
+gmx insert-molecules -ci MP.pdb -f mn_riboswitch.gro -o mn_riboswitch.gro -ip out/mn_riboswitch_A.dat -replace water <span class="p">|&amp;</span> tee -a tmp_insert.dat
+</pre></div>
+</div>
+<p>Run the following command will tell you how many solvent molecules have been replaced by the MP pseudoatoms and how to update the topology.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">awk</span> <span class="s1">&#39;$1 == &quot;Replaced&quot; {sum += $2}; END {print &quot;</span><span class="se">\n</span><span class="s1">In your topology.top file under the section [ molecules ] do the following:</span><span class="se">\n</span><span class="s1">(1) decrease the number of solvent molecules by &quot; sum &quot;</span><span class="se">\n</span><span class="s1">(2) add the following line:</span><span class="se">\n</span><span class="s1">MP        2&quot;}&#39;</span> <span class="n">tmp_insert</span><span class="o">.</span><span class="n">dat</span> <span class="o">&amp;&amp;</span> <span class="n">rm</span> <span class="n">tmp_insert</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>not needed</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir md0
+<span class="nv">mdp_dir</span><span class="o">=</span>mdp
+<span class="nv">structureName</span><span class="o">=</span>mn_riboswitch_s4_cleaned
+<span class="nv">plumedFile</span><span class="o">=</span>plumed_A1-U1.dat
+
+gmx grompp -f <span class="s2">&quot;</span><span class="nv">$mdp_dir</span><span class="s2">&quot;</span>/md0.mdp -c npt/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.gro -p <span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.top -o md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.tpr -po md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.mdp
+gmx mdrun -v -s md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.tpr -c md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.gro -x md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.xtc -cpo md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.cpt -e md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.edr -g md0/<span class="s2">&quot;</span><span class="nv">$structureName</span><span class="s2">&quot;</span>.log -plumed <span class="s2">&quot;</span><span class="nv">$plumedFile</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_run</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./getting_started"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Fabio D. Steffen<br/>
+        
+            &copy; Copyright 2020-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
