@@ -473,8 +473,8 @@ available at <a class="reference external" href="https://github.com/RNA-FRETools
                <span class="n">top</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_dir</span><span class="o">+</span><span class="s1">&#39;DNA_hairpin.pdb&#39;</span><span class="p">),</span>
                <span class="n">stride</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">labeling_params</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_dir</span><span class="o">+</span><span class="s1">&#39;DNA_hairpin_labels.json&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;timestep: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">timestep</span><span class="o">/</span><span class="mi">1000</span> <span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;length: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span> <span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;timestep: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">timestep</span><span class="o">/</span><span class="mi">1000</span><span class="w"> </span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;length: </span><span class="si">{</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span><span class="w"> </span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> ns&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,18 +540,18 @@ length: 1000 ns
   <tbody>
     <tr>
       <th>0</th>
-      <td>51.0</td>
+      <td>50.9</td>
       <td>0.58</td>
-      <td>51.2</td>
+      <td>51.1</td>
       <td>44.4</td>
       <td>48.2</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>51.1</td>
+      <td>51.0</td>
       <td>0.58</td>
-      <td>51.2</td>
+      <td>51.1</td>
       <td>43.5</td>
       <td>48.4</td>
       <td>100000.0</td>

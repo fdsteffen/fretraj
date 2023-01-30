@@ -434,14 +434,13 @@ If <cite>False</cite>, relaxation event occured after donor excitation.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fretraj.burst.Burst.calcFRET">
-<span class="sig-name descname"><span class="pre">calcFRET</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/burst.html#Burst.calcFRET"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.burst.Burst.calcFRET" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calcFRET</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretraj/burst.html#Burst.calcFRET"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretraj.burst.Burst.calcFRET" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculate the transfer efficiency based on the donor and acceptor photon counts upon donor excitation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>no_gamma</strong> (<em>bool</em>) – mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different
-quantum yields of donor and acceptor (note: the detection efficiency ratio is always set to be 1).
-If the simulation should be compared to a gamma-corrected experiment this parameter should be set to <cite>False</cite>.</p></li>
+<li><p><strong>gamma</strong> (<em>bool</em>) – If the simulation should be compare to a gamma-corrected experiment (note: the detection efficiency ratio is set to 1), set this parameter to <cite>True</cite>.
+If the simulation should be compared to a uncorrected experiment, set this parameter to <cite>False</cite>.</p></li>
 <li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
 <li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
 </ul>

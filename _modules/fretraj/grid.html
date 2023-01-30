@@ -359,7 +359,7 @@ title="Open an issue"
 
 
 <div class="viewcode-block" id="Grid3D"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D">[docs]</a><span class="k">class</span> <span class="nc">Grid3D</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class object holding a 3D grid</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class object holding a 3D grid</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -406,7 +406,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D.make_grid"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.make_grid">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">make_grid</span><span class="p">(</span><span class="n">attach_xyz</span><span class="p">,</span> <span class="n">linker_length</span><span class="p">,</span> <span class="n">grid_spacing</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Build a 3D grid around the attachment point</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a 3D grid around the attachment point</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -442,7 +442,7 @@ title="Open an issue"
 
 <div class="viewcode-block" id="Grid3D._xyz2idx"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D._xyz2idx">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_xyz2idx</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">originAdj</span><span class="p">,</span> <span class="n">grid_spacing</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the ijk grid indices for a set of xyz values</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the ijk grid indices for a set of xyz values</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -462,7 +462,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">xyz</span> <span class="o">-</span> <span class="n">originAdj</span><span class="p">)</span> <span class="o">/</span> <span class="n">grid_spacing</span><span class="p">),</span> <span class="n">decimals</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Grid3D.block_molecule"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.block_molecule">[docs]</a>    <span class="k">def</span> <span class="nf">block_molecule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol_xyzr</span><span class="p">,</span> <span class="n">extraClash</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Block the grid points which are within the VdW radius of any atom of the biomolecule plus an extra clash radius</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Block the grid points which are within the VdW radius of any atom of the biomolecule plus an extra clash radius</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -492,7 +492,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D._carve_VdWextraClash"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D._carve_VdWextraClash">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_carve_VdWextraClash</span><span class="p">(</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">mol_xyzr</span><span class="p">,</span> <span class="n">neighbor_list</span><span class="p">,</span> <span class="n">ijk_atom</span><span class="p">,</span> <span class="n">extraClash</span><span class="p">,</span> <span class="n">distSq</span><span class="p">,</span> <span class="n">outDistSq</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loop through the atoms and assign -1 to all grid values that are within the atoms VdW radius</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Loop through the atoms and assign -1 to all grid values that are within the atoms VdW radius</span>
 <span class="sd">        plus an extraClash value</span>
 
 <span class="sd">        Parameters</span>
@@ -527,7 +527,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">grid_3d</span></div>
 
 <div class="viewcode-block" id="Grid3D.dijkstra_init"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.dijkstra_init">[docs]</a>    <span class="k">def</span> <span class="nf">dijkstra_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxR</span><span class="p">,</span> <span class="n">maxR_source</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Initialize the Dijkstra search algorithm</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the Dijkstra search algorithm</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -554,7 +554,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">grid_3d</span></div>
 
 <div class="viewcode-block" id="Grid3D.sortedNeighborIdx"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.sortedNeighborIdx">[docs]</a>    <span class="k">def</span> <span class="nf">sortedNeighborIdx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxR</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Build a neighbor list with a maximal extent given by maxR and sorted by increasing distance</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a neighbor list with a maximal extent given by maxR and sorted by increasing distance</span>
 <span class="sd">        from the origin</span>
 
 <span class="sd">        Parameters</span>
@@ -573,7 +573,7 @@ title="Open an issue"
 
 <div class="viewcode-block" id="Grid3D._neighborIdx"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D._neighborIdx">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_neighborIdx</span><span class="p">(</span><span class="n">maxR</span><span class="p">,</span> <span class="n">grid_spacing</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Build a list of neighboring indices to the origin (0,0,0)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a list of neighboring indices to the origin (0,0,0)</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -613,7 +613,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">idxs</span></div>
 
 <div class="viewcode-block" id="Grid3D.essential_neighbors"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.essential_neighbors">[docs]</a>    <span class="k">def</span> <span class="nf">essential_neighbors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idxs</span><span class="p">,</span> <span class="n">dist_list</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reduce the neighbor list to those indices with a distance from the origin featured in dist_list</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reduce the neighbor list to those indices with a distance from the origin featured in dist_list</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -639,7 +639,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D.dijkstra"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.dijkstra">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">edges_ess</span><span class="p">,</span> <span class="n">edges_src</span><span class="p">,</span> <span class="n">priority_queue</span><span class="p">,</span> <span class="n">start_ijk</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Djikstra algorithm with a priority queue</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Djikstra algorithm with a priority queue</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -684,7 +684,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D.setAboveTreshold"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.setAboveTreshold">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">setAboveTreshold</span><span class="p">(</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">treshold</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reassign grid values which are above a specified treshold</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reassign grid values which are above a specified treshold</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -708,7 +708,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">grid_3d</span></div>
 
 <div class="viewcode-block" id="Grid3D.excludeConcentricSpheres"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.excludeConcentricSpheres">[docs]</a>    <span class="k">def</span> <span class="nf">excludeConcentricSpheres</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol_xyzr</span><span class="p">,</span> <span class="n">dye_radii</span><span class="p">,</span> <span class="n">maxRho</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Exclude all grid points which are not compatible with any of the dye radii because of clashing with the VdW surface</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Exclude all grid points which are not compatible with any of the dye radii because of clashing with the VdW surface</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -741,7 +741,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D._assignRho"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D._assignRho">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_assignRho</span><span class="p">(</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">mol_xyzr</span><span class="p">,</span> <span class="n">neighbor_list</span><span class="p">,</span> <span class="n">ijk_atom</span><span class="p">,</span> <span class="n">dye_radii_sorted</span><span class="p">,</span> <span class="n">rhos</span><span class="p">,</span> <span class="n">distSq</span><span class="p">,</span> <span class="n">outdistSq</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loop through the atoms and radii and reassign the grid values with a number 0 &lt; rho &lt; 1.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Loop through the atoms and radii and reassign the grid values with a number 0 &lt; rho &lt; 1.</span>
 <span class="sd">        0.00: grid point is not compatible with any of the three dye radii (clashes with VdW surface)</span>
 <span class="sd">        0.33: grid point is compatible with the smallest dye radius</span>
 <span class="sd">        0.66: grid point is compatible with the smallest two radii</span>
@@ -789,7 +789,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">grid_3d</span></div>
 
 <div class="viewcode-block" id="Grid3D.addWeights"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D.addWeights">[docs]</a>    <span class="k">def</span> <span class="nf">addWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">das_xyzrm</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reassign those grid values which are part of the contact volume.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reassign those grid values which are part of the contact volume.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -813,7 +813,7 @@ title="Open an issue"
 <div class="viewcode-block" id="Grid3D._assignDensity"><a class="viewcode-back" href="../../module/grid.html#fretraj.grid.Grid3D._assignDensity">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="nd">@nb</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_assignDensity</span><span class="p">(</span><span class="n">grid_3d</span><span class="p">,</span> <span class="n">das_xyzrm</span><span class="p">,</span> <span class="n">neighbor_list</span><span class="p">,</span> <span class="n">ijk_atom</span><span class="p">,</span> <span class="n">distSq</span><span class="p">,</span> <span class="n">outDistSq</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loop through the atom of the biomolecule and reassign those grid value which are within das_xyzrm[m, 3]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Loop through the atom of the biomolecule and reassign those grid value which are within das_xyzrm[m, 3]</span>
 <span class="sd">        as they belong to the CV.</span>
 
 <span class="sd">        Parameters</span>

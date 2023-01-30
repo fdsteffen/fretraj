@@ -583,7 +583,7 @@ title="Print to PDF"
     <span class="p">},</span>
 <span class="s2">&quot;fret&quot;</span><span class="p">:</span> 
     <span class="p">{</span><span class="s2">&quot;kappasquare&quot;</span><span class="p">:</span> <span class="mf">0.6666</span>
-     <span class="s2">&quot;no_gamma&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+     <span class="s2">&quot;gamma&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
      <span class="s2">&quot;quenching_radius&quot;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="s2">&quot;species&quot;</span><span class="p">:</span>
@@ -619,8 +619,7 @@ can be defined. This allows to additionally simulate <strong>fluorescence anisot
 <li><p><code class="docutils literal notranslate"><span class="pre">fret</span></code></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kappasquare</span></code>: <span class="math notranslate nohighlight">\(\kappa^2\)</span> value for the given <code class="docutils literal notranslate"><span class="pre">R0</span></code> (usually isotropic averaging, i.e. 2/3)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">no_gamma</span></code>: mimic an uncorrected FRET experiment which is affected by the different quantum yields of donor and acceptor (i.e. before <span class="math notranslate nohighlight">\(\gamma\)</span>-correction).
-The detection efficiency ratio is always set to 1. If the simulation is compared to a <span class="math notranslate nohighlight">\(\gamma\)</span>-corrected experiment this parameter should be set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code>: to compare the simulation against a gamma-corrected FRET experiment set this parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code> (default).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">quenching_radius</span></code>: radius below which radiationless deactivation occurs due to contact quenching of the dyes</p></li>
 </ul>
 </li>
