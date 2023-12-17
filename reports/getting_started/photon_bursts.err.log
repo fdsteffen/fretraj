@@ -15,69 +15,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-experiment = ft.burst.Experiment('burst_data/', parameters)
+parameters = ft.burst.readParameters('burst_data/burst_parameters.json')
+parameters
 ------------------
 
------ stdout -----
-Loading files...
-Orientation independent R0_const = 5.8 A
-
-              donor    acceptor
-QY            0.20    0.20
-tau (ns)      1.00    1.40
-k_f (ns^-1)   0.20    0.14
-k_ic (ns^-1)  0.80    0.57
-              
-Burst averaging method: all
-Calculate anisotropy: no
-------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[4], line 1[0m
-[0;32m----> 1[0m experiment [38;5;241m=[39m [43mft[49m[38;5;241;43m.[39;49m[43mburst[49m[38;5;241;43m.[39;49m[43mExperiment[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mburst_data/[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mparameters[49m[43m)[49m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m parameters [38;5;241m=[39m [43mft[49m[38;5;241;43m.[39;49m[43mburst[49m[38;5;241m.[39mreadParameters([38;5;124m'[39m[38;5;124mburst_data/burst_parameters.json[39m[38;5;124m'[39m)
+[1;32m      2[0m parameters
 
-File [0;32m~/work/fretraj/fretraj/src/fretraj/burst.py:674[0m, in [0;36mExperiment.__init__[0;34m(self, directory, parameters, binwidth, compute_anisotropy, verbose, show_progress, units)[0m
-[1;32m    671[0m [38;5;28;01mwith[39;00m multiprocessing[38;5;241m.[39mPool() [38;5;28;01mas[39;00m pool:
-[1;32m    672[0m     [38;5;28;01mif[39;00m in_notebook():
-[1;32m    673[0m         [38;5;28mself[39m[38;5;241m.[39mbursts [38;5;241m=[39m [38;5;28mlist[39m(
-[0;32m--> 674[0m             [43mtqdm[49m[38;5;241;43m.[39;49m[43mnotebook[49m[38;5;241;43m.[39;49m[43mtqdm[49m[43m([49m
-[1;32m    675[0m [43m                [49m[43mpool[49m[38;5;241;43m.[39;49m[43mimap[49m[43m([49m
-[1;32m    676[0m [43m                    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcalcBurst[49m[43m,[49m
-[1;32m    677[0m [43m                    [49m[43mburstsizes[49m[43m,[49m
-[1;32m    678[0m [43m                    [49m[43mchunksize[49m[38;5;241;43m=[39;49m[38;5;28;43mint[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparameters[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msampling[39;49m[38;5;124;43m"[39;49m[43m][49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mnbursts[39;49m[38;5;124;43m"[39;49m[43m][49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;241;43m50[39;49m[43m)[49m[43m,[49m
-[1;32m    679[0m [43m                [49m[43m)[49m[43m,[49m
-[1;32m    680[0m [43m                [49m[43mtotal[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparameters[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msampling[39;49m[38;5;124;43m"[39;49m[43m][49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mnbursts[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
-[1;32m    681[0m [43m                [49m[43mdesc[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mCalculating bursts[39;49m[38;5;124;43m"[39;49m[43m,[49m
-[1;32m    682[0m [43m                [49m[43mbar_format[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;132;43;01m{desc}[39;49;00m[38;5;124;43m: [39;49m[38;5;132;43;01m{percentage:3.0f}[39;49;00m[38;5;124;43m%[39;49m[38;5;124;43m|[39;49m[38;5;132;43;01m{bar}[39;49;00m[38;5;124;43m| [39;49m[38;5;132;43;01m{n_fmt}[39;49;00m[38;5;124;43m/[39;49m[38;5;132;43;01m{total_fmt}[39;49;00m[38;5;124;43m [[39;49m[38;5;132;43;01m{remaining}[39;49;00m[38;5;124;43m s][39;49m[38;5;124;43m"[39;49m[43m,[49m
-[1;32m    683[0m [43m            [49m[43m)[49m
-[1;32m    684[0m         )
-[1;32m    685[0m     [38;5;28;01melse[39;00m:
-[1;32m    686[0m         [38;5;28mself[39m[38;5;241m.[39mbursts [38;5;241m=[39m [38;5;28mlist[39m(
-[1;32m    687[0m             tqdm[38;5;241m.[39mtqdm(
-[1;32m    688[0m                 pool[38;5;241m.[39mimap(
-[0;32m   (...)[0m
-[1;32m    696[0m             )
-[1;32m    697[0m         )
-
-File [0;32m/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/tqdm/notebook.py:233[0m, in [0;36mtqdm_notebook.__init__[0;34m(self, *args, **kwargs)[0m
-[1;32m    231[0m unit_scale [38;5;241m=[39m [38;5;241m1[39m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39munit_scale [38;5;129;01mis[39;00m [38;5;28;01mTrue[39;00m [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39munit_scale [38;5;129;01mor[39;00m [38;5;241m1[39m
-[1;32m    232[0m total [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mtotal [38;5;241m*[39m unit_scale [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mtotal [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39mtotal
-[0;32m--> 233[0m [38;5;28mself[39m[38;5;241m.[39mcontainer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mstatus_printer[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfp[49m[43m,[49m[43m [49m[43mtotal[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdesc[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mncols[49m[43m)[49m
-[1;32m    234[0m [38;5;28mself[39m[38;5;241m.[39mcontainer[38;5;241m.[39mpbar [38;5;241m=[39m proxy([38;5;28mself[39m)
-[1;32m    235[0m [38;5;28mself[39m[38;5;241m.[39mdisplayed [38;5;241m=[39m [38;5;28;01mFalse[39;00m
-
-File [0;32m/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/tqdm/notebook.py:108[0m, in [0;36mtqdm_notebook.status_printer[0;34m(_, total, desc, ncols)[0m
-[1;32m     99[0m [38;5;66;03m# Fallback to text bar if there's no total[39;00m
-[1;32m    100[0m [38;5;66;03m# DEPRECATED: replaced with an 'info' style bar[39;00m
-[1;32m    101[0m [38;5;66;03m# if not total:[39;00m
-[0;32m   (...)[0m
-[1;32m    105[0m 
-[1;32m    106[0m [38;5;66;03m# Prepare IPython progress bar[39;00m
-[1;32m    107[0m [38;5;28;01mif[39;00m IProgress [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:  [38;5;66;03m# #187 #451 #558 #872[39;00m
-[0;32m--> 108[0m     [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(WARN_NOIPYW)
-[1;32m    109[0m [38;5;28;01mif[39;00m total:
-[1;32m    110[0m     pbar [38;5;241m=[39m IProgress([38;5;28mmin[39m[38;5;241m=[39m[38;5;241m0[39m, [38;5;28mmax[39m[38;5;241m=[39mtotal)
-
-[0;31mImportError[0m: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+[0;31mAttributeError[0m: module 'fretraj' has no attribute 'burst'
 

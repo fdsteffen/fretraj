@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -142,9 +142,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/fretraj_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/fretraj_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/fretraj_logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../_static/fretraj_logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
   
   
 </a></div>
@@ -396,6 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -405,6 +408,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -454,6 +458,11 @@ This notebook show how to simulate <strong>photon bursts</strong> similar to a c
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The burst submodule could not be imported
+</pre></div>
+</div>
+</div>
 </div>
 <p>First, we load a parameter file for the burst simulation. The format of this file is described <span class="xref myst">here</span></p>
 <div class="cell tag_hide-output docutils container">
@@ -469,29 +478,13 @@ This notebook show how to simulate <strong>photon bursts</strong> similar to a c
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dyes&#39;: {&#39;tauD&#39;: 1,
-  &#39;tauA&#39;: 1.4,
-  &#39;QD&#39;: 0.2,
-  &#39;QA&#39;: 0.2,
-  &#39;dipole_angle_abs_em&#39;: 10},
- &#39;sampling&#39;: {&#39;nbursts&#39;: 5000,
-  &#39;skipframesatstart&#39;: 0,
-  &#39;skipframesatend&#39;: 1000,
-  &#39;multiprocessing&#39;: True},
- &#39;fret&#39;: {&#39;R0&#39;: 5.4,
-  &#39;kappasquare&#39;: 0.6666,
-  &#39;gamma&#39;: True,
-  &#39;quenching_radius&#39;: 1},
- &#39;species&#39;: {&#39;name&#39;: [&#39;all&#39;],
-  &#39;unix_pattern_rkappa&#39;: [&#39;R_kappa.dat&#39;],
-  &#39;probability&#39;: [1],
-  &#39;n_trajectory_splits&#39;: None},
- &#39;bursts&#39;: {&#39;lower_limit&#39;: 15,
-  &#39;upper_limit&#39;: 150,
-  &#39;lambda&#39;: -2.3,
-  &#39;averaging&#39;: &#39;all&#39;,
-  &#39;QY_correction&#39;: False,
-  &#39;burst_size_file&#39;: None}}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">readParameters</span><span class="p">(</span><span class="s1">&#39;burst_data/burst_parameters.json&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">parameters</span>
+
+<span class="ne">AttributeError</span>: module &#39;fretraj&#39; has no attribute &#39;burst&#39;
 </pre></div>
 </div>
 </div>
@@ -504,58 +497,6 @@ This notebook show how to simulate <strong>photon bursts</strong> similar to a c
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>R_DA (nm)</th>
-      <th>kappasquare</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.0</th>
-      <td>5.09</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>100.0</th>
-      <td>5.12</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>200.0</th>
-      <td>5.16</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>300.0</th>
-      <td>5.11</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <th>400.0</th>
-      <td>5.38</td>
-      <td>0.66</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>An analytical burst size distribution <span class="math notranslate nohighlight">\(P(x)\)</span> is specified as a power law with a coefficient <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="math notranslate nohighlight">
@@ -564,71 +505,6 @@ This notebook show how to simulate <strong>photon bursts</strong> similar to a c
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="s1">&#39;burst_data/&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading files...
-Orientation independent R0_const = 5.8 A
-
-              donor    acceptor
-QY            0.20    0.20
-tau (ns)      1.00    1.40
-k_f (ns^-1)   0.20    0.14
-k_ic (ns^-1)  0.80    0.57
-              
-Burst averaging method: all
-Calculate anisotropy: no
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">experiment</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">burst</span><span class="o">.</span><span class="n">Experiment</span><span class="p">(</span><span class="s1">&#39;burst_data/&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-
-<span class="nn">File ~/work/fretraj/fretraj/src/fretraj/burst.py:674,</span> in <span class="ni">Experiment.__init__</span><span class="nt">(self, directory, parameters, binwidth, compute_anisotropy, verbose, show_progress, units)</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span> <span class="k">with</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="k">if</span> <span class="n">in_notebook</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">673</span>         <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">674</span>             <span class="n">tqdm</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span>                 <span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">calcBurst</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span>                     <span class="n">burstsizes</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span>                     <span class="n">chunksize</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;sampling&quot;</span><span class="p">][</span><span class="s2">&quot;nbursts&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">50</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span>                 <span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">680</span>                 <span class="n">total</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;sampling&quot;</span><span class="p">][</span><span class="s2">&quot;nbursts&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">681</span>                 <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Calculating bursts&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>                 <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">%|</span><span class="si">{bar}</span><span class="s2">| </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> [</span><span class="si">{remaining}</span><span class="s2"> s]&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">683</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span>         <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span>             <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">688</span>                 <span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span>         <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/tqdm/notebook.py:233,</span> in <span class="ni">tqdm_notebook.__init__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span> <span class="n">unit_scale</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_scale</span> <span class="ow">is</span> <span class="kc">True</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_scale</span> <span class="ow">or</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">*</span> <span class="n">unit_scale</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span>
-<span class="ne">--&gt; </span><span class="mi">233</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status_printer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">pbar</span> <span class="o">=</span> <span class="n">proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span> <span class="bp">self</span><span class="o">.</span><span class="n">displayed</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/tqdm/notebook.py:108,</span> in <span class="ni">tqdm_notebook.status_printer</span><span class="nt">(_, total, desc, ncols)</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="c1"># Fallback to text bar if there&#39;s no total</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="c1"># DEPRECATED: replaced with an &#39;info&#39; style bar</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="c1"># if not total:</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span> 
-<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="c1"># Prepare IPython progress bar</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="k">if</span> <span class="n">IProgress</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># #187 #451 #558 #872</span>
-<span class="ne">--&gt; </span><span class="mi">108</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">WARN_NOIPYW</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="k">if</span> <span class="n">total</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="n">pbar</span> <span class="o">=</span> <span class="n">IProgress</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">total</span><span class="p">)</span>
-
-<span class="ne">ImportError</span>: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
 </pre></div>
 </div>
 </div>
@@ -677,7 +553,7 @@ Calculate anisotropy: no
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="trajectories.html"
@@ -720,6 +596,7 @@ By Fabio D. Steffen
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2020-2021.
@@ -746,8 +623,8 @@ By Fabio D. Steffen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
